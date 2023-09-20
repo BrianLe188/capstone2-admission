@@ -1,0 +1,15 @@
+syntax = 'proto3';
+
+package admission;
+
+service Admission {
+  rpc Default(GreetRequest) returns (GreetResponse) {}
+}
+message GreetRequest {
+  string name = 1;
+  string language_code = 2;
+}
+
+message GreetResponse {
+  string greeting = 1;
+}
