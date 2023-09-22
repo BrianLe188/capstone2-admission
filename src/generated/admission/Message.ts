@@ -1,4 +1,4 @@
-// Original file: src/protos/admission.proto
+// Original file: admission/admission.proto
 
 
 export interface Message {

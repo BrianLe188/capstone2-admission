@@ -1,5 +1,6 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import { Module } from "./services/modules/module.entity";
+import { MemberSchool } from "./services/member-schools/member-schools.entity";
 
 export const AdmissionDB = new DataSource({
   type: process.env.DB_TYPE,
@@ -10,7 +11,7 @@ export const AdmissionDB = new DataSource({
   database: process.env.DB_NAME,
   synchronize: true,
   logging: true,
-  entities: [Module],
+  entities: [Module, MemberSchool],
   subscribers: [],
   migrations: [],
 } as DataSourceOptions);

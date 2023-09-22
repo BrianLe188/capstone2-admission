@@ -1,0 +1,22 @@
+syntax = 'proto3';
+
+package member_school;
+
+message MemberSchool {
+  string name = 1;
+  string link = 2;
+  bool university = 3;
+  bool after_university = 4;
+  string thumbnail = 5;
+  string logo = 6;
+}
+
+message UpdateMemberSchool {
+  string id = 1;
+  MemberSchool body = 2;
+}
+
+message MemberSchoolResponse {
+  MemberSchool school = 1;
+  string error = 2;
+}

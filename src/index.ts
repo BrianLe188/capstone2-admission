@@ -12,6 +12,10 @@ import defaultService from "./services/default";
 import "reflect-metadata";
 import { AdmissionDB } from "./data-source";
 import moduleRPC from "./services/modules/module.rpc";
+import memberSchoolRPC from "./services/member-schools/member-schools.rpc";
+import majorsRPC from "./services/majors/majors.rpc";
+import subjectRPC from "./services/subjects/subjects.rpc";
+import subjectBlockRPC from "./services/subject-blocks/subject-blocks.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -24,6 +28,10 @@ function main() {
   server.addService(service.admission.Admission.service, {
     ...defaultService,
     ...moduleRPC,
+    ...memberSchoolRPC,
+    ...majorsRPC,
+    ...subjectRPC,
+    ...subjectBlockRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

@@ -1,3 +1,3 @@
 import path from "path";
 
-export const PROTO_PATH = path.join(__dirname, "admission.proto");
+export const PROTO_PATH = path.join(__dirname, "admission", "admission.proto");

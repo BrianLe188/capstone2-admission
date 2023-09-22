@@ -15,10 +15,30 @@ export interface ProtoGrpcType {
     Message: MessageTypeDefinition
     Target: MessageTypeDefinition
   }
+  majors: {
+    Majors: MessageTypeDefinition
+    MajorsResponse: MessageTypeDefinition
+    UpdateMajors: MessageTypeDefinition
+  }
+  member_school: {
+    MemberSchool: MessageTypeDefinition
+    MemberSchoolResponse: MessageTypeDefinition
+    UpdateMemberSchool: MessageTypeDefinition
+  }
   module: {
     Module: MessageTypeDefinition
     ModuleResponse: MessageTypeDefinition
     UpdateModule: MessageTypeDefinition
+  }
+  subject: {
+    Subject: MessageTypeDefinition
+    SubjectResponse: MessageTypeDefinition
+    UpdateSubject: MessageTypeDefinition
+  }
+  subject_block: {
+    SubjectBlock: MessageTypeDefinition
+    SubjectBlockResponse: MessageTypeDefinition
+    UpdateSubjectBlock: MessageTypeDefinition
   }
 }
 
