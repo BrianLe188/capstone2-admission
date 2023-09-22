@@ -17,4 +17,9 @@ export class Module {
 
   @Column()
   path: string;
+
+  @Column({
+    type: "text",
+  })
+  icon: string;
 }

@@ -11,6 +11,7 @@ import { ProtoGrpcType } from "./generated/admission";
 import defaultService from "./services/default";
 import "reflect-metadata";
 import { AdmissionDB } from "./data-source";
+import moduleRPC from "./services/modules/module.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -22,6 +23,7 @@ function main() {
   const server = new Server();
   server.addService(service.admission.Admission.service, {
     ...defaultService,
+    ...moduleRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

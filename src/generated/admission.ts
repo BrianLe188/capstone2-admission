@@ -12,6 +12,13 @@ export interface ProtoGrpcType {
     Admission: SubtypeConstructor<typeof grpc.Client, _admission_AdmissionClient> & { service: _admission_AdmissionDefinition }
     GreetRequest: MessageTypeDefinition
     GreetResponse: MessageTypeDefinition
+    Message: MessageTypeDefinition
+    Target: MessageTypeDefinition
+  }
+  module: {
+    Module: MessageTypeDefinition
+    ModuleResponse: MessageTypeDefinition
+    UpdateModule: MessageTypeDefinition
   }
 }
 

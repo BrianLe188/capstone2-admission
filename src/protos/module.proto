@@ -1,0 +1,20 @@
+syntax = 'proto3';
+
+package module;
+
+message Module {
+  string key = 1;
+  string name = 2;
+  string path = 3;
+  string icon = 4;
+}
+
+message UpdateModule {
+  string id = 1;
+  Module body = 2;
+}
+
+message ModuleResponse {
+  Module module = 1;
+  string error = 2;
+}
