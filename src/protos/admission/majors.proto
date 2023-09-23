@@ -3,10 +3,11 @@ syntax = 'proto3';
 package majors;
 
 message Majors {
-  string name = 1;
-  string educational_level = 2;
-  string industry_code = 3;
-  string specialized_code = 4;
+  optional string id = 1;
+  string name = 2;
+  string educational_level = 3;
+  string industry_code = 4;
+  string specialized_code = 5;
 }
 
 message UpdateMajors {
@@ -16,5 +17,5 @@ message UpdateMajors {
 
 message MajorsResponse {
   Majors major = 1;
-  string error = 2;
+  optional string error = 2;
 }

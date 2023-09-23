@@ -11,6 +11,8 @@ import type { MemberSchoolResponse as _member_school_MemberSchoolResponse, Membe
 import type { Message as _admission_Message, Message__Output as _admission_Message__Output } from '../admission/Message';
 import type { Module as _module_Module, Module__Output as _module_Module__Output } from '../module/Module';
 import type { ModuleResponse as _module_ModuleResponse, ModuleResponse__Output as _module_ModuleResponse__Output } from '../module/ModuleResponse';
+import type { ModulesResponse as _module_ModulesResponse, ModulesResponse__Output as _module_ModulesResponse__Output } from '../module/ModulesResponse';
+import type { RequestEmpty as _admission_RequestEmpty, RequestEmpty__Output as _admission_RequestEmpty__Output } from '../admission/RequestEmpty';
 import type { Subject as _subject_Subject, Subject__Output as _subject_Subject__Output } from '../subject/Subject';
 import type { SubjectBlock as _subject_block_SubjectBlock, SubjectBlock__Output as _subject_block_SubjectBlock__Output } from '../subject_block/SubjectBlock';
 import type { SubjectBlockResponse as _subject_block_SubjectBlockResponse, SubjectBlockResponse__Output as _subject_block_SubjectBlockResponse__Output } from '../subject_block/SubjectBlockResponse';
@@ -122,6 +124,15 @@ export interface AdmissionClient extends grpc.Client {
   deleteSubjectBlock(argument: _admission_Target, options: grpc.CallOptions, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   deleteSubjectBlock(argument: _admission_Target, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   
+  GetAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllModule(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllModule(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  getAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  getAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  getAllModule(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  getAllModule(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
+  
   UpdateMajor(argument: _majors_UpdateMajors, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_majors_MajorsResponse__Output>): grpc.ClientUnaryCall;
   UpdateMajor(argument: _majors_UpdateMajors, metadata: grpc.Metadata, callback: grpc.requestCallback<_majors_MajorsResponse__Output>): grpc.ClientUnaryCall;
   UpdateMajor(argument: _majors_UpdateMajors, options: grpc.CallOptions, callback: grpc.requestCallback<_majors_MajorsResponse__Output>): grpc.ClientUnaryCall;
@@ -192,6 +203,8 @@ export interface AdmissionHandlers extends grpc.UntypedServiceImplementation {
   
   DeleteSubjectBlock: grpc.handleUnaryCall<_admission_Target__Output, _admission_Message>;
   
+  GetAllModule: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _module_ModulesResponse>;
+  
   UpdateMajor: grpc.handleUnaryCall<_majors_UpdateMajors__Output, _majors_MajorsResponse>;
   
   UpdateMemberSchool: grpc.handleUnaryCall<_member_school_UpdateMemberSchool__Output, _member_school_MemberSchoolResponse>;
@@ -216,6 +229,7 @@ export interface AdmissionDefinition extends grpc.ServiceDefinition {
   DeleteModule: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeleteSubject: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeleteSubjectBlock: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
+  GetAllModule: MethodDefinition<_admission_RequestEmpty, _module_ModulesResponse, _admission_RequestEmpty__Output, _module_ModulesResponse__Output>
   UpdateMajor: MethodDefinition<_majors_UpdateMajors, _majors_MajorsResponse, _majors_UpdateMajors__Output, _majors_MajorsResponse__Output>
   UpdateMemberSchool: MethodDefinition<_member_school_UpdateMemberSchool, _member_school_MemberSchoolResponse, _member_school_UpdateMemberSchool__Output, _member_school_MemberSchoolResponse__Output>
   UpdateModule: MethodDefinition<_module_UpdateModule, _module_ModuleResponse, _module_UpdateModule__Output, _module_ModuleResponse__Output>

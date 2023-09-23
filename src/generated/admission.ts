@@ -13,6 +13,7 @@ export interface ProtoGrpcType {
     GreetRequest: MessageTypeDefinition
     GreetResponse: MessageTypeDefinition
     Message: MessageTypeDefinition
+    RequestEmpty: MessageTypeDefinition
     Target: MessageTypeDefinition
   }
   majors: {
@@ -28,6 +29,7 @@ export interface ProtoGrpcType {
   module: {
     Module: MessageTypeDefinition
     ModuleResponse: MessageTypeDefinition
+    ModulesResponse: MessageTypeDefinition
     UpdateModule: MessageTypeDefinition
   }
   subject: {

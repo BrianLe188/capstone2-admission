@@ -15,11 +15,14 @@ export class Module {
   })
   name: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   path: string;
 
   @Column({
     type: "text",
+    nullable: true,
   })
   icon: string;
 }

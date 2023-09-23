@@ -14,6 +14,7 @@ service Admission {
   rpc CreateModule(module.Module) returns (module.ModuleResponse) {}
   rpc UpdateModule(module.UpdateModule) returns (module.ModuleResponse) {}
   rpc DeleteModule(Target) returns (Message) {}
+  rpc GetAllModule(RequestEmpty) returns (module.ModulesResponse) {}
 
   rpc CreateMemberSchool(member_school.MemberSchool) returns (member_school.MemberSchoolResponse) {}
   rpc UpdateMemberSchool(member_school.UpdateMemberSchool) returns (member_school.MemberSchoolResponse) {}
@@ -35,6 +36,8 @@ service Admission {
 message Target {
   string id = 1;
 }
+
+message RequestEmpty {}
 
 message Message {
   string message = 1;

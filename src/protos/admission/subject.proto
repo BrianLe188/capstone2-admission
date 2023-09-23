@@ -3,7 +3,8 @@ syntax = 'proto3';
 package subject;
 
 message Subject {
-  string name = 1;
+  optional string id = 1;
+  string name = 2;
 }
 
 message UpdateSubject {
@@ -12,6 +13,6 @@ message UpdateSubject {
 }
 
 message SubjectResponse {
-  Subject major = 1;
-  string error = 2;
+  Subject subject = 1;
+  optional string error = 2;
 }

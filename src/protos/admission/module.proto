@@ -3,10 +3,11 @@ syntax = 'proto3';
 package module;
 
 message Module {
-  string key = 1;
-  string name = 2;
-  string path = 3;
-  string icon = 4;
+  optional string id = 1;
+  string key = 2;
+  string name = 3;
+  string path = 4;
+  string icon = 5;
 }
 
 message UpdateModule {
@@ -16,5 +17,10 @@ message UpdateModule {
 
 message ModuleResponse {
   Module module = 1;
-  string error = 2;
+  optional string error = 2;
+}
+
+message ModulesResponse {
+  repeated Module modules = 1;
+  optional string error = 2;
 }

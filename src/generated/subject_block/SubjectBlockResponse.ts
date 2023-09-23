@@ -5,9 +5,11 @@ import type { SubjectBlock as _subject_block_SubjectBlock, SubjectBlock__Output 
 export interface SubjectBlockResponse {
   'block'?: (_subject_block_SubjectBlock | null);
   'error'?: (string);
+  '_error'?: "error";
 }
 
 export interface SubjectBlockResponse__Output {
   'block': (_subject_block_SubjectBlock__Output | null);
-  'error': (string);
+  'error'?: (string);
+  '_error': "error";
 }

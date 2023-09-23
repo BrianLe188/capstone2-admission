@@ -3,12 +3,13 @@ syntax = 'proto3';
 package member_school;
 
 message MemberSchool {
-  string name = 1;
-  string link = 2;
-  bool university = 3;
-  bool after_university = 4;
-  string thumbnail = 5;
-  string logo = 6;
+  optional string id = 1;
+  string name = 2;
+  string link = 3;
+  bool university = 4;
+  bool after_university = 5;
+  string thumbnail = 6;
+  string logo = 7;
 }
 
 message UpdateMemberSchool {
@@ -18,5 +19,5 @@ message UpdateMemberSchool {
 
 message MemberSchoolResponse {
   MemberSchool school = 1;
-  string error = 2;
+  optional string error = 2;
 }

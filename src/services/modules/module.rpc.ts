@@ -3,6 +3,15 @@ import { Module } from "./module.entity";
 
 const moduleRepo = AdmissionDB.getRepository(Module);
 
+const GetAllModule = async (call: any, callback: any) => {
+  try {
+    const modules = await moduleRepo.find();
+    callback(null, { modules });
+  } catch (error) {
+    callback(null, { error: "Not found" });
+  }
+};
+
 const CreateModule = async (call: any, callback: any) => {
   try {
     const module: any = new Module();
@@ -48,6 +57,7 @@ const moduleRPC = {
   CreateModule,
   UpdateModule,
   DeleteModule,
+  GetAllModule,
 };
 
 export default moduleRPC;
