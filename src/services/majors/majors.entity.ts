@@ -15,14 +15,14 @@ export class Majors {
     enum: EDUCATIONAL_LEVEL,
     default: EDUCATIONAL_LEVEL.UNIVERSITY,
   })
-  educational_level: EDUCATIONAL_LEVEL;
+  educationalLevel: EDUCATIONAL_LEVEL;
 
   @Column()
-  industry_code: string;
+  industryCode: string;
 
   @Column()
-  specialized_code: string;
+  specializedCode: string;
 
   @ManyToOne(() => MemberSchool, (member) => member.majors)
-  member_school: MemberSchool;
+  memberSchool: MemberSchool;
 }

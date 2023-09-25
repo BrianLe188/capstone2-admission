@@ -3,6 +3,13 @@ import { MemberSchool } from "./member-schools.entity";
 
 const memberSchoolRepo = AdmissionDB.getRepository(MemberSchool);
 
+const GetAllMemberSchool = async (call: any, callback: any) => {
+  try {
+    const memberSchools = await memberSchoolRepo.find();
+    callback(null, { schools: { data: memberSchools } });
+  } catch (error) {}
+};
+
 const CreateMemberSchool = async (call: any, callback: any) => {
   try {
     const school: any = new MemberSchool();
@@ -48,6 +55,7 @@ const memberSchoolRPC = {
   CreateMemberSchool,
   UpdateMemberSchool,
   DeleteMemberSchool,
+  GetAllMemberSchool,
 };
 
 export default memberSchoolRPC;

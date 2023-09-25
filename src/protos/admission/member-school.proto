@@ -7,9 +7,13 @@ message MemberSchool {
   string name = 2;
   string link = 3;
   bool university = 4;
-  bool after_university = 5;
+  bool afterUniversity = 5;
   string thumbnail = 6;
   string logo = 7;
+}
+
+message MemberSchools {
+  repeated MemberSchool data = 1;
 }
 
 message UpdateMemberSchool {
@@ -18,6 +22,15 @@ message UpdateMemberSchool {
 }
 
 message MemberSchoolResponse {
-  MemberSchool school = 1;
-  optional string error = 2;
+  oneof resopnse {
+    MemberSchool school = 1;
+    string error = 2;
+  }
+}
+
+message MemberSchoolsResponse {
+  oneof response {
+    MemberSchools schools = 1;
+    string error = 2;
+  }
 }

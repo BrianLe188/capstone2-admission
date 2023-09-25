@@ -5,11 +5,11 @@ import type { MemberSchool as _member_school_MemberSchool, MemberSchool__Output 
 export interface MemberSchoolResponse {
   'school'?: (_member_school_MemberSchool | null);
   'error'?: (string);
-  '_error'?: "error";
+  'resopnse'?: "school"|"error";
 }
 
 export interface MemberSchoolResponse__Output {
-  'school': (_member_school_MemberSchool__Output | null);
+  'school'?: (_member_school_MemberSchool__Output | null);
   'error'?: (string);
-  '_error': "error";
+  'resopnse': "school"|"error";
 }

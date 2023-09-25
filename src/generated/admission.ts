@@ -24,11 +24,14 @@ export interface ProtoGrpcType {
   member_school: {
     MemberSchool: MessageTypeDefinition
     MemberSchoolResponse: MessageTypeDefinition
+    MemberSchools: MessageTypeDefinition
+    MemberSchoolsResponse: MessageTypeDefinition
     UpdateMemberSchool: MessageTypeDefinition
   }
   module: {
     Module: MessageTypeDefinition
     ModuleResponse: MessageTypeDefinition
+    Modules: MessageTypeDefinition
     ModulesResponse: MessageTypeDefinition
     UpdateModule: MessageTypeDefinition
   }

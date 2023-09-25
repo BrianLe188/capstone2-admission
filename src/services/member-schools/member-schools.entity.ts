@@ -16,14 +16,14 @@ export class MemberSchool {
   university: boolean;
 
   @Column({ default: false })
-  after_university: boolean;
+  afterUniversity: boolean;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   thumbnail: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   logo: string;
 
-  @OneToMany(() => Majors, (major) => major.member_school)
+  @OneToMany(() => Majors, (major) => major.memberSchool)
   majors: Majors[];
 }

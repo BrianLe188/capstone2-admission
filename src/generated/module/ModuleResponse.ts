@@ -5,11 +5,11 @@ import type { Module as _module_Module, Module__Output as _module_Module__Output
 export interface ModuleResponse {
   'module'?: (_module_Module | null);
   'error'?: (string);
-  '_error'?: "error";
+  'response'?: "module"|"error";
 }
 
 export interface ModuleResponse__Output {
-  'module': (_module_Module__Output | null);
+  'module'?: (_module_Module__Output | null);
   'error'?: (string);
-  '_error': "error";
+  'response': "module"|"error";
 }

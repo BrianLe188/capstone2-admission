@@ -10,6 +10,7 @@ export interface ProtoGrpcType {
   module: {
     Module: MessageTypeDefinition
     ModuleResponse: MessageTypeDefinition
+    Modules: MessageTypeDefinition
     ModulesResponse: MessageTypeDefinition
     UpdateModule: MessageTypeDefinition
   }

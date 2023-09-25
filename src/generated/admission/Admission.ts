@@ -8,6 +8,7 @@ import type { Majors as _majors_Majors, Majors__Output as _majors_Majors__Output
 import type { MajorsResponse as _majors_MajorsResponse, MajorsResponse__Output as _majors_MajorsResponse__Output } from '../majors/MajorsResponse';
 import type { MemberSchool as _member_school_MemberSchool, MemberSchool__Output as _member_school_MemberSchool__Output } from '../member_school/MemberSchool';
 import type { MemberSchoolResponse as _member_school_MemberSchoolResponse, MemberSchoolResponse__Output as _member_school_MemberSchoolResponse__Output } from '../member_school/MemberSchoolResponse';
+import type { MemberSchoolsResponse as _member_school_MemberSchoolsResponse, MemberSchoolsResponse__Output as _member_school_MemberSchoolsResponse__Output } from '../member_school/MemberSchoolsResponse';
 import type { Message as _admission_Message, Message__Output as _admission_Message__Output } from '../admission/Message';
 import type { Module as _module_Module, Module__Output as _module_Module__Output } from '../module/Module';
 import type { ModuleResponse as _module_ModuleResponse, ModuleResponse__Output as _module_ModuleResponse__Output } from '../module/ModuleResponse';
@@ -124,6 +125,15 @@ export interface AdmissionClient extends grpc.Client {
   deleteSubjectBlock(argument: _admission_Target, options: grpc.CallOptions, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   deleteSubjectBlock(argument: _admission_Target, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   
+  GetAllMemberSchool(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllMemberSchool(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllMemberSchool(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllMemberSchool(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  getAllMemberSchool(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  getAllMemberSchool(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  getAllMemberSchool(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  getAllMemberSchool(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_member_school_MemberSchoolsResponse__Output>): grpc.ClientUnaryCall;
+  
   GetAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
   GetAllModule(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
   GetAllModule(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_module_ModulesResponse__Output>): grpc.ClientUnaryCall;
@@ -203,6 +213,8 @@ export interface AdmissionHandlers extends grpc.UntypedServiceImplementation {
   
   DeleteSubjectBlock: grpc.handleUnaryCall<_admission_Target__Output, _admission_Message>;
   
+  GetAllMemberSchool: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _member_school_MemberSchoolsResponse>;
+  
   GetAllModule: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _module_ModulesResponse>;
   
   UpdateMajor: grpc.handleUnaryCall<_majors_UpdateMajors__Output, _majors_MajorsResponse>;
@@ -229,6 +241,7 @@ export interface AdmissionDefinition extends grpc.ServiceDefinition {
   DeleteModule: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeleteSubject: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeleteSubjectBlock: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
+  GetAllMemberSchool: MethodDefinition<_admission_RequestEmpty, _member_school_MemberSchoolsResponse, _admission_RequestEmpty__Output, _member_school_MemberSchoolsResponse__Output>
   GetAllModule: MethodDefinition<_admission_RequestEmpty, _module_ModulesResponse, _admission_RequestEmpty__Output, _module_ModulesResponse__Output>
   UpdateMajor: MethodDefinition<_majors_UpdateMajors, _majors_MajorsResponse, _majors_UpdateMajors__Output, _majors_MajorsResponse__Output>
   UpdateMemberSchool: MethodDefinition<_member_school_UpdateMemberSchool, _member_school_MemberSchoolResponse, _member_school_UpdateMemberSchool__Output, _member_school_MemberSchoolResponse__Output>

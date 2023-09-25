@@ -13,6 +13,8 @@ message UpdateSubject {
 }
 
 message SubjectResponse {
-  Subject subject = 1;
-  optional string error = 2;
+  oneof response {
+    Subject subject = 1;
+    string error = 2;
+  }
 }

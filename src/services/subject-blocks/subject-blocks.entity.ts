@@ -15,7 +15,7 @@ export class SubjectBlock {
   @Column({ length: 3 })
   name: string;
 
-  @ManyToMany(() => Subject, (subject) => subject.subject_blocks)
+  @ManyToMany(() => Subject, (subject) => subject.subjectBlocks)
   @JoinTable()
   subjects: Subject[];
 }

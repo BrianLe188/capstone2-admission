@@ -5,9 +5,9 @@ package majors;
 message Majors {
   optional string id = 1;
   string name = 2;
-  string educational_level = 3;
-  string industry_code = 4;
-  string specialized_code = 5;
+  string educationalLevel = 3;
+  string industryCode = 4;
+  string specializedCode = 5;
 }
 
 message UpdateMajors {
@@ -16,6 +16,8 @@ message UpdateMajors {
 }
 
 message MajorsResponse {
-  Majors major = 1;
-  optional string error = 2;
+  oneof response {
+    Majors major = 1;
+    string error = 2;
+  }
 }

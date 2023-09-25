@@ -19,6 +19,7 @@ service Admission {
   rpc CreateMemberSchool(member_school.MemberSchool) returns (member_school.MemberSchoolResponse) {}
   rpc UpdateMemberSchool(member_school.UpdateMemberSchool) returns (member_school.MemberSchoolResponse) {}
   rpc DeleteMemberSchool(Target) returns (Message) {}
+  rpc GetAllMemberSchool(RequestEmpty) returns (member_school.MemberSchoolsResponse) {}
 
   rpc CreateMajor(majors.Majors) returns (majors.MajorsResponse) {}
   rpc UpdateMajor(majors.UpdateMajors) returns (majors.MajorsResponse) {}

@@ -5,11 +5,11 @@ import type { Subject as _subject_Subject, Subject__Output as _subject_Subject__
 export interface SubjectResponse {
   'subject'?: (_subject_Subject | null);
   'error'?: (string);
-  '_error'?: "error";
+  'response'?: "subject"|"error";
 }
 
 export interface SubjectResponse__Output {
-  'subject': (_subject_Subject__Output | null);
+  'subject'?: (_subject_Subject__Output | null);
   'error'?: (string);
-  '_error': "error";
+  'response': "subject"|"error";
 }

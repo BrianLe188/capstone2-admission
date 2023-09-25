@@ -10,17 +10,25 @@ message Module {
   string icon = 5;
 }
 
+message Modules {
+  repeated Module data = 1;
+}
+
 message UpdateModule {
   string id = 1;
   Module body = 2;
 }
 
 message ModuleResponse {
-  Module module = 1;
-  optional string error = 2;
+  oneof response {
+    Module module = 1;
+    string error = 2;
+  }
 }
 
 message ModulesResponse {
-  repeated Module modules = 1;
-  optional string error = 2;
+  oneof response {
+    Modules modules = 1;
+    string error = 2;
+  }
 }

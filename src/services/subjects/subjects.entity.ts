@@ -10,5 +10,5 @@ export class Subject {
   name: string;
 
   @ManyToMany(() => SubjectBlock, (subject_block) => subject_block.subjects)
-  subject_blocks: SubjectBlock[];
+  subjectBlocks: SubjectBlock[];
 }

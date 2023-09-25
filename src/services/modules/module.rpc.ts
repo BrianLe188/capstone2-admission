@@ -6,7 +6,11 @@ const moduleRepo = AdmissionDB.getRepository(Module);
 const GetAllModule = async (call: any, callback: any) => {
   try {
     const modules = await moduleRepo.find();
-    callback(null, { modules });
+    callback(null, {
+      modules: {
+        data: modules,
+      },
+    });
   } catch (error) {
     callback(null, { error: "Not found" });
   }

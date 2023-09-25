@@ -5,11 +5,11 @@ import type { Majors as _majors_Majors, Majors__Output as _majors_Majors__Output
 export interface MajorsResponse {
   'major'?: (_majors_Majors | null);
   'error'?: (string);
-  '_error'?: "error";
+  'response'?: "major"|"error";
 }
 
 export interface MajorsResponse__Output {
-  'major': (_majors_Majors__Output | null);
+  'major'?: (_majors_Majors__Output | null);
   'error'?: (string);
-  '_error': "error";
+  'response': "major"|"error";
 }

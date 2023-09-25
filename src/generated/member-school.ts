@@ -10,6 +10,8 @@ export interface ProtoGrpcType {
   member_school: {
     MemberSchool: MessageTypeDefinition
     MemberSchoolResponse: MessageTypeDefinition
+    MemberSchools: MessageTypeDefinition
+    MemberSchoolsResponse: MessageTypeDefinition
     UpdateMemberSchool: MessageTypeDefinition
   }
 }
