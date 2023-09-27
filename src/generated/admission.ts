@@ -19,6 +19,8 @@ export interface ProtoGrpcType {
   majors: {
     Majors: MessageTypeDefinition
     MajorsResponse: MessageTypeDefinition
+    Majorss: MessageTypeDefinition
+    MajorssResponse: MessageTypeDefinition
     UpdateMajors: MessageTypeDefinition
   }
   member_school: {
@@ -38,11 +40,15 @@ export interface ProtoGrpcType {
   subject: {
     Subject: MessageTypeDefinition
     SubjectResponse: MessageTypeDefinition
+    Subjects: MessageTypeDefinition
+    SubjectsResponse: MessageTypeDefinition
     UpdateSubject: MessageTypeDefinition
   }
   subject_block: {
     SubjectBlock: MessageTypeDefinition
     SubjectBlockResponse: MessageTypeDefinition
+    SubjectBlocks: MessageTypeDefinition
+    SubjectBlocksResponse: MessageTypeDefinition
     UpdateSubjectBlock: MessageTypeDefinition
   }
 }

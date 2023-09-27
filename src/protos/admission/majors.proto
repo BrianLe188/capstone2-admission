@@ -11,6 +11,10 @@ message Majors {
   optional string description = 6;
 }
 
+message Majorss {
+  repeated Majors majors = 1;
+}
+
 message UpdateMajors {
   string id = 1;
   Majors body = 2;
@@ -19,6 +23,13 @@ message UpdateMajors {
 message MajorsResponse {
   oneof response {
     Majors major = 1;
+    string error = 2;
+  }
+}
+
+message MajorssResponse {
+  oneof response {
+    Majorss majors = 1;
     string error = 2;
   }
 }

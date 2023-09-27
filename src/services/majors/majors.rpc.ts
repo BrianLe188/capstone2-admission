@@ -3,6 +3,17 @@ import { Majors } from "./majors.entity";
 
 const majorsRepo = AdmissionDB.getRepository(Majors);
 
+const GetAllMajors = async (call: any, callback: any) => {
+  try {
+    const majors = await majorsRepo.find();
+    callback(null, {
+      majors: {
+        data: majors,
+      },
+    });
+  } catch (error) {}
+};
+
 const CreateMajor = async (call: any, callback: any) => {
   try {
     const major: any = new Majors();
@@ -48,6 +59,7 @@ const majorsRPC = {
   CreateMajor,
   UpdateMajor,
   DeleteMajor,
+  GetAllMajors,
 };
 
 export default majorsRPC;

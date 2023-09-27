@@ -10,6 +10,8 @@ export interface ProtoGrpcType {
   majors: {
     Majors: MessageTypeDefinition
     MajorsResponse: MessageTypeDefinition
+    Majorss: MessageTypeDefinition
+    MajorssResponse: MessageTypeDefinition
     UpdateMajors: MessageTypeDefinition
   }
 }

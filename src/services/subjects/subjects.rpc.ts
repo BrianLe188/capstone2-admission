@@ -3,6 +3,17 @@ import { Subject } from "./subjects.entity";
 
 const subjectRepo = AdmissionDB.getRepository(Subject);
 
+const GetAllSubject = async (call: any, callback: any) => {
+  try {
+    const subjects = await subjectRepo.find();
+    callback(null, {
+      subjects: {
+        data: subjects,
+      },
+    });
+  } catch (error) {}
+};
+
 const CreateSubject = async (call: any, callback: any) => {
   try {
     const subject: any = new Subject();
@@ -48,6 +59,7 @@ const subjectRPC = {
   CreateSubject,
   UpdateSubject,
   DeleteSubject,
+  GetAllSubject,
 };
 
 export default subjectRPC;
