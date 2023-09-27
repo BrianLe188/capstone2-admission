@@ -7,7 +7,9 @@ export interface Majors {
   'educationalLevel'?: (string);
   'industryCode'?: (string);
   'specializedCode'?: (string);
+  'description'?: (string);
   '_id'?: "id";
+  '_description'?: "description";
 }
 
 export interface Majors__Output {
@@ -16,5 +18,7 @@ export interface Majors__Output {
   'educationalLevel': (string);
   'industryCode': (string);
   'specializedCode': (string);
+  'description'?: (string);
   '_id': "id";
+  '_description': "description";
 }

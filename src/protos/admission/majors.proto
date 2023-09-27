@@ -8,6 +8,7 @@ message Majors {
   string educationalLevel = 3;
   string industryCode = 4;
   string specializedCode = 5;
+  optional string description = 6;
 }
 
 message UpdateMajors {

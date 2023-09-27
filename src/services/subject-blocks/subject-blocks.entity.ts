@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Subject } from "../subjects/subjects.entity";
+import { Majors } from "../majors/majors.entity";
 
 @Entity({ name: "subject_blocks" })
 export class SubjectBlock {
@@ -18,4 +19,10 @@ export class SubjectBlock {
   @ManyToMany(() => Subject, (subject) => subject.subjectBlocks)
   @JoinTable()
   subjects: Subject[];
+
+  @ManyToMany(() => Majors, (majors) => majors.basedOnHighSchoolExamResults)
+  basedOnHighSchoolExamResults: Majors[];
+
+  @ManyToMany(() => Majors, (majors) => majors.basedOnHighSchoolTranscripts)
+  basedOnHighSchoolTranscripts: Majors[];
 }
