@@ -35,6 +35,7 @@ service Admission {
   rpc UpdateSubjectBlock(subject_block.UpdateSubjectBlock) returns (subject_block.SubjectBlockResponse) {}
   rpc DeleteSubjectBlock(Target) returns (Message) {}
   rpc GetAllSubjectBlock(RequestEmpty) returns (subject_block.SubjectBlocksResponse) {}
+  rpc ImportSubjectBlock(Strings) returns (Message) {}
 }
 
 message Target {
@@ -54,4 +55,8 @@ message GreetRequest {
 
 message GreetResponse {
   string greeting = 1;
+}
+
+message Strings {
+  repeated string data = 1;
 }

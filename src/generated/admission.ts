@@ -14,6 +14,7 @@ export interface ProtoGrpcType {
     GreetResponse: MessageTypeDefinition
     Message: MessageTypeDefinition
     RequestEmpty: MessageTypeDefinition
+    Strings: MessageTypeDefinition
     Target: MessageTypeDefinition
   }
   majors: {

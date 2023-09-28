@@ -3,6 +3,23 @@ import { SubjectBlock } from "./subject-blocks.entity";
 
 const subjectBlockRepo = AdmissionDB.getRepository(SubjectBlock);
 
+const ImportSubjectBlock = async (call: any, callback: any) => {
+  try {
+    const { data } = call.request;
+    if (data.length === 0) {
+      return callback(null, { message: "Invalid data" });
+    }
+    await Promise.all(
+      data.map(async (item: string) => {
+        const subject_block = new SubjectBlock();
+        subject_block.name = item;
+        await subjectBlockRepo.save(subject_block);
+      })
+    );
+    callback(null, { mesasge: "Success" });
+  } catch (error) {}
+};
+
 const GetAllSubjectBlock = async (call: any, callback: any) => {
   try {
     const subject_blocks = await subjectBlockRepo.find();
@@ -60,6 +77,7 @@ const subjectBlockRPC = {
   UpdateSubjectBlock,
   DeleteSubjectBlock,
   GetAllSubjectBlock,
+  ImportSubjectBlock,
 };
 
 export default subjectBlockRPC;
