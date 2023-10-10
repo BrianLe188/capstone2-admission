@@ -8,9 +8,10 @@ import { ApplicationForAdmissionWithAHighSchoolScriptOptionOne } from "./service
 import { ApplicationAdmissionRegistration } from "./services/application-admission-registration/application-admission-registration.entity";
 import { Area } from "./services/area/area.entity";
 import { Priority } from "./services/priority/priority.entity";
-import { Medal } from "./services/medal/medal.entity";
+import { Medal } from "./services/object-admission/object-admission.entity";
 import { ApplicationForStraightAdmissionAndPriorityConsideration } from "./services/application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.entity";
 import { ApplicationAdmissionRegistrationVoice } from "./services/application-admission-registration-voices/application-admission-registration-voices.entity";
+import { Nation } from "./services/nation/nation.entity";
 
 export const AdmissionDB = new DataSource({
   type: process.env.DB_TYPE,
@@ -34,6 +35,7 @@ export const AdmissionDB = new DataSource({
     Priority,
     Medal,
     ApplicationAdmissionRegistrationVoice,
+    Nation,
   ],
   subscribers: [],
   migrations: [],

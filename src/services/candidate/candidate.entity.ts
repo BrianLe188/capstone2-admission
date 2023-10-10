@@ -1,5 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Gender } from "../gender/gender.entity";
+import { Nation } from "../nation/nation.entity";
+import { Priority } from "../priority/priority.entity";
+import { Area } from "../area/area.entity";
 
 @Entity({ name: "candidates" })
 export class Candidate {
@@ -18,6 +21,7 @@ export class Candidate {
   @Column({ nullable: true })
   birthplace: string;
 
+  @Column()
   @Column({ length: 12 })
   cccd: string;
 
@@ -38,4 +42,17 @@ export class Candidate {
 
   @ManyToOne(() => Gender, (gender) => gender.candidates)
   gender: Gender;
+
+  @ManyToOne(() => Nation, (nation) => nation.candidates, { nullable: true })
+  nation: Nation;
+
+  @ManyToOne(() => Priority, (priority) => priority.candidates, {
+    nullable: true,
+  })
+  priority: Priority;
+
+  @ManyToOne(() => Area, (area) => area.candidates, {
+    nullable: true,
+  })
+  area: Area;
 }
