@@ -1,0 +1,33 @@
+syntax = 'proto3';
+
+package admission;
+
+import './gender.proto';
+
+service Admission {
+  rpc Default(GreetRequest) returns (GreetResponse) {}
+
+  rpc CreateGender(gender.Gender) returns (gender.GenderResponse) {}
+  rpc UpdateGender(gender.UpdateGender) returns (gender.GenderResponse) {}
+  rpc DeleteGender(Target) returns (Message) {}
+  rpc GetAllGender(RequestEmpty) returns (gender.GendersResponse) {}
+}
+
+message Target {
+  string id = 1;
+}
+
+message RequestEmpty {}
+
+message Message {
+  string message = 1;
+}
+
+message GreetRequest {
+  string name = 1;
+  string language_code = 2;
+}
+
+message GreetResponse {
+  string greeting = 1;
+}

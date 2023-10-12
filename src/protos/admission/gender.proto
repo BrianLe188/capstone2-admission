@@ -1,0 +1,31 @@
+syntax = 'proto3';
+
+package gender;
+
+message Gender {
+  optional string id = 1;
+  string name = 2;
+}
+
+message Genders {
+  repeated Gender data = 1;
+}
+
+message UpdateGender {
+  string id = 1;
+  Gender body = 2;
+}
+
+message GenderResponse {
+  oneof response {
+    Gender gender = 1;
+    string error = 2;
+  }
+}
+
+message GendersResponse {
+  oneof response {
+    Genders genders = 1;
+    string error = 2;
+  }
+}

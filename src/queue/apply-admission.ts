@@ -1,18 +1,26 @@
-import { Channel } from "amqplib";
+import { Channel, Message } from "amqplib";
 
 const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
   const exchange = "admission";
-  const queue = "apply_admission";
+  const applyQueue = "apply_admission";
 
   await channel.assertExchange(exchange, "direct");
-  await channel.assertQueue(queue);
-  await channel.bindQueue(queue, exchange, "write");
+  await channel.assertQueue(applyQueue);
+  await channel.bindQueue(applyQueue, exchange, "apply");
 
   channel.consume(
-    queue,
-    (msg) => {
-      if (msg?.fields.routingKey === "write") {
-        const data = JSON.parse(msg.content.toString());
+    applyQueue,
+    async (msg) => {
+      try {
+        if (msg?.fields.routingKey === "apply") {
+          const { form, data } = JSON.parse(msg.content.toString());
+          if (!data) {
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        channel.ack(msg as Message);
       }
     },
     {

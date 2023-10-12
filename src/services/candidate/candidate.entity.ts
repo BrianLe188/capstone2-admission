@@ -28,7 +28,7 @@ export class Candidate {
   @Column({ type: "text" })
   highschoolAddress: string;
 
-  @Column({ type: "integer" })
+  @Column({ type: "integer", nullable: true })
   highschoolGraduateYear: number;
 
   @Column({ length: 10 })
