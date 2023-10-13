@@ -13,6 +13,8 @@ import { AdmissionDB } from "./data-source";
 import applyAdmissionQueue from "./queue/apply-admission";
 import { ProtoGrpcType } from "./generated/admission";
 import genderRPC from "./services/gender/gender.rpc";
+import areaRPC from "./services/area/area.rpc";
+import priorityRPC from "./services/priority/priority.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -24,6 +26,8 @@ async function main() {
   const server = new Server();
   server.addService(service.admission.Admission.service, {
     ...genderRPC,
+    ...areaRPC,
+    ...priorityRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

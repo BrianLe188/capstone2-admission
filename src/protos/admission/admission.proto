@@ -3,6 +3,8 @@ syntax = 'proto3';
 package admission;
 
 import './gender.proto';
+import './area.proto';
+import './priority.proto';
 
 service Admission {
   rpc Default(GreetRequest) returns (GreetResponse) {}
@@ -11,6 +13,16 @@ service Admission {
   rpc UpdateGender(gender.UpdateGender) returns (gender.GenderResponse) {}
   rpc DeleteGender(Target) returns (Message) {}
   rpc GetAllGender(RequestEmpty) returns (gender.GendersResponse) {}
+
+  rpc CreateArea(area.Area) returns (area.AreaResponse) {}
+  rpc UpdateArea(area.UpdateGender) returns (area.AreaResponse) {}
+  rpc DeleteArea(Target) returns (Message) {}
+  rpc GetAllArea(RequestEmpty) returns (area.AreasResponse) {}
+
+  rpc CreatePriority(priority.Priority) returns (priority.PriorityResponse) {}
+  rpc UpdatePriority(priority.UpdatePriority) returns (priority.PriorityResponse) {}
+  rpc DeletePriority(Target) returns (Message) {}
+  rpc GetAllPriority(RequestEmpty) returns (priority.PrioritiesResponse) {}
 }
 
 message Target {

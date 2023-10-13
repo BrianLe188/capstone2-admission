@@ -1,0 +1,31 @@
+syntax = 'proto3';
+
+package area;
+
+message Area {
+  optional string id = 1;
+  string name = 2;
+}
+
+message Areas {
+  repeated Area data = 1;
+}
+
+message UpdateGender {
+  string id = 1;
+  Area body = 2;
+}
+
+message AreaResponse {
+  oneof response {
+    Area area = 1;
+    string error = 2;
+  }
+}
+
+message AreasResponse {
+  oneof response {
+    Areas areas = 1;
+    string error = 2;
+  }
+}

@@ -30,15 +30,15 @@ const CreateGender = async (call: any, callback: any) => {
 const UpdateGender = async (call: any, callback: any) => {
   try {
     const { id, body } = call.request;
-    const updatedModule: any = await genderRepo.findOneBy({
+    const updatedGender: any = await genderRepo.findOneBy({
       id,
     });
-    if (updatedModule) {
+    if (updatedGender) {
       Object.keys(body).forEach((item) => {
-        updatedModule[item] = body[item];
+        updatedGender[item] = body[item];
       });
-      await genderRepo.save(updatedModule);
-      callback(null, { gender: updatedModule });
+      await genderRepo.save(updatedGender);
+      callback(null, { gender: updatedGender });
     } else {
     }
   } catch (error) {}

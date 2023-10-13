@@ -16,12 +16,26 @@ export interface ProtoGrpcType {
     RequestEmpty: MessageTypeDefinition
     Target: MessageTypeDefinition
   }
+  area: {
+    Area: MessageTypeDefinition
+    AreaResponse: MessageTypeDefinition
+    Areas: MessageTypeDefinition
+    AreasResponse: MessageTypeDefinition
+    UpdateGender: MessageTypeDefinition
+  }
   gender: {
     Gender: MessageTypeDefinition
     GenderResponse: MessageTypeDefinition
     Genders: MessageTypeDefinition
     GendersResponse: MessageTypeDefinition
     UpdateGender: MessageTypeDefinition
+  }
+  priority: {
+    Priorities: MessageTypeDefinition
+    PrioritiesResponse: MessageTypeDefinition
+    Priority: MessageTypeDefinition
+    PriorityResponse: MessageTypeDefinition
+    UpdatePriority: MessageTypeDefinition
   }
 }
 

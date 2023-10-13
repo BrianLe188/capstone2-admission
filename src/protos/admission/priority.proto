@@ -1,0 +1,31 @@
+syntax = 'proto3';
+
+package priority;
+
+message Priority {
+  optional string id = 1;
+  string name = 2;
+}
+
+message Priorities {
+  repeated Priority data = 1;
+}
+
+message UpdatePriority {
+  string id = 1;
+  Priority body = 2;
+}
+
+message PriorityResponse {
+  oneof response {
+    Priority priority = 1;
+    string error = 2;
+  }
+}
+
+message PrioritiesResponse {
+  oneof response {
+    Priorities priorities = 1;
+    string error = 2;
+  }
+}
