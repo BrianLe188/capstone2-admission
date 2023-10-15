@@ -1,8 +1,15 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Gender } from "../gender/gender.entity";
 import { Nation } from "../nation/nation.entity";
 import { Priority } from "../priority/priority.entity";
 import { Area } from "../area/area.entity";
+import { ApplicationForAdmissionWithAHighSchoolScript } from "../application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.entity";
 
 @Entity({ name: "candidates" })
 export class Candidate {
@@ -12,7 +19,7 @@ export class Candidate {
   @Column({ length: 30 })
   fullName: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   avatar: string;
 
   @Column({ type: "date" })
@@ -55,4 +62,10 @@ export class Candidate {
     nullable: true,
   })
   area: Area;
+
+  @OneToOne(
+    () => ApplicationForAdmissionWithAHighSchoolScript,
+    (application) => application.candidate
+  )
+  ApplicationForAdmissionWithAHighSchoolScript: ApplicationForAdmissionWithAHighSchoolScript;
 }

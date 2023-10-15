@@ -2,12 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { EApplyStatus } from "../../utils/enums";
-import { ApplicationForAdmissionWithAHighSchoolScriptOptionOne } from "../application-for-admission-with-a-high-school-script-option-one/application-for-admission-with-a-high-school-script-option-one.entity";
+import { Candidate } from "../candidate/candidate.entity";
 
 @Entity({
   name: "application_for_admission_with_a_high_school_script",
@@ -25,8 +26,33 @@ export class ApplicationForAdmissionWithAHighSchoolScript {
   @Column()
   addressToReceiveAdmissionNotice: string;
 
-  @OneToOne(() => ApplicationForAdmissionWithAHighSchoolScriptOptionOne)
-  optionOne: ApplicationForAdmissionWithAHighSchoolScriptOptionOne;
+  @Column()
+  subjectOne: number;
+
+  @Column({ type: "double" })
+  subjectOneScore: number;
+
+  @Column()
+  subjectTwo: number;
+
+  @Column({ type: "double" })
+  subjectTwoScore: number;
+
+  @Column()
+  subjectThree: number;
+
+  @Column({ type: "double" })
+  subjectThreeScore: number;
+
+  @Column({ type: "double" })
+  total: number;
+
+  @OneToOne(
+    () => Candidate,
+    (candidate) => candidate.ApplicationForAdmissionWithAHighSchoolScript
+  )
+  @JoinColumn()
+  candidate: Candidate;
 
   @CreateDateColumn({ type: "timestamp" })
   submitedAt: Date;

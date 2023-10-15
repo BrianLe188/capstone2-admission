@@ -2,7 +2,6 @@ import { DataSource, DataSourceOptions } from "typeorm";
 import { ApplicationAdmissionRegistrationVoice } from "./services/application-admission-registration-voices/application-admission-registration-voices.entity";
 import { ApplicationAdmissionRegistration } from "./services/application-admission-registration/application-admission-registration.entity";
 import { ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult } from "./services/application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.entity";
-import { ApplicationForAdmissionWithAHighSchoolScriptOptionOne } from "./services/application-for-admission-with-a-high-school-script-option-one/application-for-admission-with-a-high-school-script-option-one.entity";
 import { ApplicationForAdmissionWithAHighSchoolScript } from "./services/application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.entity";
 import { ApplicationForStraightAdmissionAndPriorityConsideration } from "./services/application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.entity";
 import { Area } from "./services/area/area.entity";
@@ -26,7 +25,6 @@ export const AdmissionDB = new DataSource({
     Gender,
     ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult,
     ApplicationForAdmissionWithAHighSchoolScript,
-    ApplicationForAdmissionWithAHighSchoolScriptOptionOne,
     ApplicationAdmissionRegistration,
     ApplicationForStraightAdmissionAndPriorityConsideration,
     Area,
