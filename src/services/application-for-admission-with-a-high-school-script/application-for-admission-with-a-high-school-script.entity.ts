@@ -14,7 +14,7 @@ import { Candidate } from "../candidate/candidate.entity";
   name: "application_for_admission_with_a_high_school_script",
 })
 export class ApplicationForAdmissionWithAHighSchoolScript {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
@@ -22,9 +22,6 @@ export class ApplicationForAdmissionWithAHighSchoolScript {
 
   @Column()
   majorId: number;
-
-  @Column()
-  addressToReceiveAdmissionNotice: string;
 
   @Column()
   subjectOne: number;

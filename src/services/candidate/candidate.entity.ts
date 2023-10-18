@@ -13,7 +13,7 @@ import { ApplicationForAdmissionWithAHighSchoolScript } from "../application-for
 
 @Entity({ name: "candidates" })
 export class Candidate {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @Column({ length: 30 })
@@ -46,6 +46,9 @@ export class Candidate {
 
   @Column({ nullable: true })
   permanentResidence: string;
+
+  @Column({ nullable: true })
+  addressToReceiveAdmissionNotice: string;
 
   @ManyToOne(() => Gender, (gender) => gender.candidates)
   gender: Gender;

@@ -11,14 +11,11 @@ import { EApplyStatus } from "../../utils/enums";
   name: "application_for_admission_assessment_test_result",
 })
 export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
   status: EApplyStatus;
-
-  @Column()
-  addressToReceiveAdmissionNotice: string;
 
   @Column({ length: 9 })
   examRegistrationApplicationCode: string;

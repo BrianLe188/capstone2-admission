@@ -10,7 +10,7 @@ import { ApplicationAdmissionRegistrationVoice } from "../application-admission-
 
 @Entity({ name: "application_admission_registration" })
 export class ApplicationAdmissionRegistration {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @Column()

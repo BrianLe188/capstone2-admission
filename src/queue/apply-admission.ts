@@ -16,30 +16,56 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
       try {
         if (msg?.fields.routingKey === "apply") {
           const { form, data } = JSON.parse(msg.content.toString());
+
           if (!data) {
           }
+
+          const {
+            fullName,
+            avatar,
+            birthday,
+            birthplace,
+            cccd,
+            highschoolAddress,
+            highschoolGraduateYear,
+            phonenumber,
+            email,
+            permanentResidence,
+            gender,
+            nation,
+            priority,
+            area,
+            addressToReceiveAdmissionNotice,
+            ...rest
+          } = data;
+
+          const candidate = await CandidateService.create({
+            body: {
+              fullName,
+              avatar,
+              birthday,
+              birthplace,
+              cccd,
+              highschoolAddress,
+              highschoolGraduateYear,
+              phonenumber,
+              email,
+              permanentResidence,
+              gender,
+              nation,
+              priority,
+              addressToReceiveAdmissionNotice,
+              area,
+            },
+          });
+
           switch (form) {
             case "admission_registration": {
               break;
             }
             case "admission_with_high_school_script": {
               const {
-                fullName,
-                avatar,
-                birthday,
-                birthplace,
-                cccd,
-                highschoolAddress,
-                highschoolGraduateYear,
-                phonenumber,
-                email,
-                permanentResidence,
-                gender,
-                nation,
-                priority,
-                area,
                 majorId,
-                addressToReceiveAdmissionNotice,
                 subjectOne,
                 subjectOneScore,
                 subjectTwo,
@@ -47,30 +73,11 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                 subjectThree,
                 subjectThreeScore,
                 total,
-              } = data;
-              const candidate = await CandidateService.create({
-                body: {
-                  fullName,
-                  avatar,
-                  birthday,
-                  birthplace,
-                  cccd,
-                  highschoolAddress,
-                  highschoolGraduateYear,
-                  phonenumber,
-                  email,
-                  permanentResidence,
-                  gender,
-                  nation,
-                  priority,
-                  area,
-                },
-              });
+              } = rest;
               ApplicationForAdmissionWithAHighSchoolScriptService.create({
                 body: {
                   candidate,
                   majorId,
-                  addressToReceiveAdmissionNotice,
                   subjectOne,
                   subjectOneScore,
                   subjectTwo,

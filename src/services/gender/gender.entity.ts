@@ -3,7 +3,7 @@ import { Candidate } from "../candidate/candidate.entity";
 
 @Entity({ name: "genders" })
 export class Gender {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @Column()
