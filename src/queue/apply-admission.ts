@@ -19,6 +19,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
 
           if (!data) {
           }
+          console.log(data);
 
           const {
             fullName,

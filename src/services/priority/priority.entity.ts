@@ -9,6 +9,12 @@ export class Priority {
   @Column()
   name: string;
 
+  @Column({
+    type: "text",
+    nullable: true,
+  })
+  description: string;
+
   @OneToMany(() => Candidate, (candidate) => candidate.priority)
   candidates: Candidate[];
 }

@@ -5,7 +5,6 @@ const create = async (req: {
   body: Prettify<Partial<ApplicationForAdmissionWithAHighSchoolScript>>;
 }) => {
   try {
-    console.log(req.body);
   } catch (error) {}
 };
 
