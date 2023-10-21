@@ -15,6 +15,7 @@ import { ProtoGrpcType } from "./generated/admission";
 import genderRPC from "./services/gender/gender.rpc";
 import areaRPC from "./services/area/area.rpc";
 import priorityRPC from "./services/priority/priority.rpc";
+import objectRPC from "./services/object-admission/object-admission.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -28,6 +29,7 @@ async function main() {
     ...genderRPC,
     ...areaRPC,
     ...priorityRPC,
+    ...objectRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

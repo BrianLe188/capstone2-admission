@@ -1,6 +1,9 @@
 import { Channel, Message } from "amqplib";
 import ApplicationForAdmissionWithAHighSchoolScriptService from "../services/application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.service";
 import CandidateService from "../services/candidate/candidate.service";
+import { Candidate } from "../services/candidate/candidate.entity";
+import ApplicationForStraightAdmissionAndPriorityConsiderationService from "../services/application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.service";
+import ObjectAdmissionService from "../services/object-admission/object-admission.service";
 
 const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
   const exchange = "admission";
@@ -19,7 +22,6 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
 
           if (!data) {
           }
-          console.log(data);
 
           const {
             fullName,
@@ -40,25 +42,34 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
             ...rest
           } = data;
 
-          const candidate = await CandidateService.create({
+          let candidate = (await CandidateService.findOne({
             body: {
-              fullName,
-              avatar,
-              birthday,
-              birthplace,
               cccd,
-              highschoolAddress,
-              highschoolGraduateYear,
-              phonenumber,
               email,
-              permanentResidence,
-              gender,
-              nation,
-              priority,
-              addressToReceiveAdmissionNotice,
-              area,
             },
-          });
+          })) as Candidate | undefined;
+
+          if (!candidate) {
+            candidate = (await CandidateService.create({
+              body: {
+                fullName,
+                avatar,
+                birthday,
+                birthplace,
+                cccd,
+                highschoolAddress,
+                highschoolGraduateYear,
+                phonenumber,
+                email,
+                permanentResidence,
+                gender,
+                nation,
+                priority,
+                addressToReceiveAdmissionNotice,
+                area,
+              },
+            })) as Candidate | undefined;
+          }
 
           switch (form) {
             case "admission_registration": {
@@ -73,7 +84,6 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                 subjectTwoScore,
                 subjectThree,
                 subjectThreeScore,
-                total,
               } = rest;
               ApplicationForAdmissionWithAHighSchoolScriptService.create({
                 body: {
@@ -85,9 +95,35 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                   subjectTwoScore,
                   subjectThree,
                   subjectThreeScore,
-                  total,
+                  total:
+                    Number(subjectOneScore) +
+                    Number(subjectTwoScore) +
+                    Number(subjectThreeScore),
                 },
               });
+              break;
+            }
+            case "admission_and_priority_consideration": {
+              const { objectAdmission: objectId, majorId } = rest;
+              const objectAdmission = await ObjectAdmissionService.findOne({
+                body: {
+                  id: objectId,
+                },
+              });
+              if (objectAdmission) {
+                ApplicationForStraightAdmissionAndPriorityConsiderationService.create(
+                  {
+                    body: {
+                      candidate,
+                      majorId,
+                      objectAdmission,
+                    },
+                  }
+                );
+              }
+              break;
+            }
+            case "admission_consideration_according_to_the_competence_assessment_test_result": {
               break;
             }
           }

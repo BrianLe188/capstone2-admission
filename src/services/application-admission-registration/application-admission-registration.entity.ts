@@ -2,16 +2,19 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { ApplicationAdmissionRegistrationVoice } from "../application-admission-registration-voices/application-admission-registration-voices.entity";
+import { Candidate } from "../candidate/candidate.entity";
 
 @Entity({ name: "application_admission_registration" })
 export class ApplicationAdmissionRegistration {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column()
   school: string;
@@ -30,4 +33,11 @@ export class ApplicationAdmissionRegistration {
 
   @UpdateDateColumn({ type: "timestamp" })
   updatedAt: Date;
+
+  @OneToOne(
+    () => Candidate,
+    (candidate) => candidate.ApplicationAdmissionRegistration
+  )
+  @JoinColumn()
+  candidate: Candidate;
 }

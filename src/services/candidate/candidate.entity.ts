@@ -10,11 +10,14 @@ import { Nation } from "../nation/nation.entity";
 import { Priority } from "../priority/priority.entity";
 import { Area } from "../area/area.entity";
 import { ApplicationForAdmissionWithAHighSchoolScript } from "../application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.entity";
+import { ApplicationAdmissionRegistration } from "../application-admission-registration/application-admission-registration.entity";
+import { ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult } from "../application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.entity";
+import { ApplicationForStraightAdmissionAndPriorityConsideration } from "../application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.entity";
 
 @Entity({ name: "candidates" })
 export class Candidate {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column({ length: 30 })
   fullName: string;
@@ -29,7 +32,7 @@ export class Candidate {
   birthplace: string;
 
   @Column()
-  @Column({ length: 12 })
+  @Column({ length: 12, unique: true })
   cccd: string;
 
   @Column({ type: "text" })
@@ -41,7 +44,7 @@ export class Candidate {
   @Column({ length: 10 })
   phonenumber: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column({ nullable: true })
@@ -71,4 +74,23 @@ export class Candidate {
     (application) => application.candidate
   )
   ApplicationForAdmissionWithAHighSchoolScript: ApplicationForAdmissionWithAHighSchoolScript;
+
+  @OneToOne(
+    () => ApplicationAdmissionRegistration,
+    (application) => application.candidate
+  )
+  ApplicationAdmissionRegistration: ApplicationAdmissionRegistration;
+
+  @OneToOne(
+    () =>
+      ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult,
+    (application) => application.candidate
+  )
+  ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult: ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult;
+
+  @OneToOne(
+    () => ApplicationForStraightAdmissionAndPriorityConsideration,
+    (application) => application.candidate
+  )
+  ApplicationForStraightAdmissionAndPriorityConsideration: ApplicationForStraightAdmissionAndPriorityConsideration;
 }

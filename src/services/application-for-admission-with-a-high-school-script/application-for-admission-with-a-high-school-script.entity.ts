@@ -15,28 +15,28 @@ import { Candidate } from "../candidate/candidate.entity";
 })
 export class ApplicationForAdmissionWithAHighSchoolScript {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
   status: EApplyStatus;
 
   @Column()
-  majorId: number;
+  majorId: string;
 
   @Column()
-  subjectOne: number;
+  subjectOne: string;
 
   @Column({ type: "double" })
   subjectOneScore: number;
 
   @Column()
-  subjectTwo: number;
+  subjectTwo: string;
 
   @Column({ type: "double" })
   subjectTwoScore: number;
 
   @Column()
-  subjectThree: number;
+  subjectThree: string;
 
   @Column({ type: "double" })
   subjectThreeScore: number;

@@ -11,6 +11,22 @@ const genderRepo = AdmissionDB.getRepository(Gender);
 const priorityRepo = AdmissionDB.getRepository(Priority);
 const areaRepo = AdmissionDB.getRepository(Area);
 
+const findOne = async (req: {
+  body: {
+    cccd?: string;
+    email?: string;
+  };
+}) => {
+  try {
+    const target = await candidateRepo.findOne({
+      where: req.body,
+    });
+    return target;
+  } catch (error) {
+    return null;
+  }
+};
+
 const create = async (req: { body: any }) => {
   try {
     const {
@@ -28,6 +44,7 @@ const create = async (req: { body: any }) => {
       nation,
       priority,
       area,
+      addressToReceiveAdmissionNotice,
     } = req.body;
     const candidate = new Candidate();
     candidate.fullName = fullName;
@@ -40,6 +57,7 @@ const create = async (req: { body: any }) => {
     candidate.phonenumber = phonenumber;
     candidate.email = email;
     candidate.permanentResidence = permanentResidence;
+    candidate.addressToReceiveAdmissionNotice = addressToReceiveAdmissionNotice;
     if (nation) {
       const _nation = await nationRepo.findOne({
         where: {
@@ -83,12 +101,13 @@ const create = async (req: { body: any }) => {
     await candidateRepo.save(candidate);
     return candidate;
   } catch (error) {
-    console.log(error);
+    return null;
   }
 };
 
 const CandidateService = {
   create,
+  findOne,
 };
 
 export default CandidateService;

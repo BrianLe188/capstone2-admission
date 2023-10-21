@@ -4,7 +4,7 @@ import { Candidate } from "../candidate/candidate.entity";
 @Entity({ name: "priorities" })
 export class Priority {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column()
   name: string;

@@ -11,7 +11,7 @@ message Areas {
   repeated Area data = 1;
 }
 
-message UpdateGender {
+message UpdateArea {
   string id = 1;
   Area body = 2;
 }

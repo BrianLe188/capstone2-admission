@@ -4,7 +4,7 @@ import { ApplicationForStraightAdmissionAndPriorityConsideration } from "../appl
 @Entity({ name: "object_admission" })
 export class ObjectAdmission {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column()
   name: string;

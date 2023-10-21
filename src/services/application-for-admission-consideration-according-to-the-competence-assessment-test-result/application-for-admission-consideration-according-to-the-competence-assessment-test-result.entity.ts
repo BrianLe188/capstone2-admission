@@ -2,17 +2,20 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { EApplyStatus } from "../../utils/enums";
+import { Candidate } from "../candidate/candidate.entity";
 
 @Entity({
   name: "application_for_admission_assessment_test_result",
 })
 export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: string;
 
   @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
   status: EApplyStatus;
@@ -27,7 +30,7 @@ export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessm
   resultOfExam: number;
 
   @Column()
-  majorId: number;
+  majorid: string;
 
   @Column({ type: "text" })
   attachPriorityDocument: string;
@@ -40,4 +43,8 @@ export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessm
 
   @UpdateDateColumn({ type: "timestamp" })
   updatedAt: Date;
+
+  @OneToOne(() => Candidate, (candidate) => candidate)
+  @JoinColumn()
+  candidate: Candidate;
 }

@@ -5,6 +5,7 @@ package admission;
 import './gender.proto';
 import './area.proto';
 import './priority.proto';
+import './object-admission.proto';
 
 service Admission {
   rpc Default(GreetRequest) returns (GreetResponse) {}
@@ -15,7 +16,7 @@ service Admission {
   rpc GetAllGender(RequestEmpty) returns (gender.GendersResponse) {}
 
   rpc CreateArea(area.Area) returns (area.AreaResponse) {}
-  rpc UpdateArea(area.UpdateGender) returns (area.AreaResponse) {}
+  rpc UpdateArea(area.UpdateArea) returns (area.AreaResponse) {}
   rpc DeleteArea(Target) returns (Message) {}
   rpc GetAllArea(RequestEmpty) returns (area.AreasResponse) {}
 
@@ -23,6 +24,11 @@ service Admission {
   rpc UpdatePriority(priority.UpdatePriority) returns (priority.PriorityResponse) {}
   rpc DeletePriority(Target) returns (Message) {}
   rpc GetAllPriority(RequestEmpty) returns (priority.PrioritiesResponse) {}
+
+  rpc CreateObjectAdmission(object_admission.ObjectAdmission) returns (object_admission.ObjectAdmissionResponse) {}
+  rpc UpdateObjectAdmission(object_admission.UpdateObjectAdmission) returns (object_admission.ObjectAdmissionResponse) {}
+  rpc DeleteObjectAdmission(Target) returns (Message) {}
+  rpc GetAllObjectAdmission(RequestEmpty) returns (object_admission.ObjectAdmissionsResponse) {}
 }
 
 message Target {

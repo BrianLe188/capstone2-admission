@@ -21,7 +21,7 @@ export interface ProtoGrpcType {
     AreaResponse: MessageTypeDefinition
     Areas: MessageTypeDefinition
     AreasResponse: MessageTypeDefinition
-    UpdateGender: MessageTypeDefinition
+    UpdateArea: MessageTypeDefinition
   }
   gender: {
     Gender: MessageTypeDefinition
@@ -29,6 +29,13 @@ export interface ProtoGrpcType {
     Genders: MessageTypeDefinition
     GendersResponse: MessageTypeDefinition
     UpdateGender: MessageTypeDefinition
+  }
+  object_admission: {
+    ObjectAdmission: MessageTypeDefinition
+    ObjectAdmissionResponse: MessageTypeDefinition
+    ObjectAdmissions: MessageTypeDefinition
+    ObjectAdmissionsResponse: MessageTypeDefinition
+    UpdateObjectAdmission: MessageTypeDefinition
   }
   priority: {
     Priorities: MessageTypeDefinition

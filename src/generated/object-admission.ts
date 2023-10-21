@@ -7,12 +7,12 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 };
 
 export interface ProtoGrpcType {
-  area: {
-    Area: MessageTypeDefinition
-    AreaResponse: MessageTypeDefinition
-    Areas: MessageTypeDefinition
-    AreasResponse: MessageTypeDefinition
-    UpdateArea: MessageTypeDefinition
+  object_admission: {
+    ObjectAdmission: MessageTypeDefinition
+    ObjectAdmissionResponse: MessageTypeDefinition
+    ObjectAdmissions: MessageTypeDefinition
+    ObjectAdmissionsResponse: MessageTypeDefinition
+    UpdateObjectAdmission: MessageTypeDefinition
   }
 }
 
