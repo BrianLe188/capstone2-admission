@@ -1,5 +1,4 @@
 import { DataSource, DataSourceOptions } from "typeorm";
-import { ApplicationAdmissionRegistrationVoice } from "./services/application-admission-registration-voices/application-admission-registration-voices.entity";
 import { ApplicationAdmissionRegistration } from "./services/application-admission-registration/application-admission-registration.entity";
 import { ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult } from "./services/application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.entity";
 import { ApplicationForAdmissionWithAHighSchoolScript } from "./services/application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.entity";
@@ -29,7 +28,6 @@ export const AdmissionDB = new DataSource({
     ApplicationForStraightAdmissionAndPriorityConsideration,
     Area,
     Priority,
-    ApplicationAdmissionRegistrationVoice,
     Nation,
     ObjectAdmission,
   ],

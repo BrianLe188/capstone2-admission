@@ -30,12 +30,12 @@ export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessm
   resultOfExam: number;
 
   @Column()
-  majorid: string;
+  majorId: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   attachPriorityDocument: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   attachOtherDocument: string;
 
   @CreateDateColumn({ type: "timestamp" })

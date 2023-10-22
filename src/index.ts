@@ -16,6 +16,7 @@ import genderRPC from "./services/gender/gender.rpc";
 import areaRPC from "./services/area/area.rpc";
 import priorityRPC from "./services/priority/priority.rpc";
 import objectRPC from "./services/object-admission/object-admission.rpc";
+import notificationQueue from "./queue/notification";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -41,7 +42,10 @@ async function main() {
           .then(async () => {
             const amqpConnection = await amqp.connect("amqp://127.0.0.1");
             const channel = await amqpConnection.createChannel();
+
             applyAdmissionQueue({ channel });
+            notificationQueue({ channel });
+
             console.log(`Admission service is running`);
           })
           .catch((error) => {

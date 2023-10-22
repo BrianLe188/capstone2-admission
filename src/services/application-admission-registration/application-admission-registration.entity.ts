@@ -3,12 +3,11 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ApplicationAdmissionRegistrationVoice } from "../application-admission-registration-voices/application-admission-registration-voices.entity";
+import { EApplyStatus } from "../../utils/enums";
 import { Candidate } from "../candidate/candidate.entity";
 
 @Entity({ name: "application_admission_registration" })
@@ -16,17 +15,11 @@ export class ApplicationAdmissionRegistration {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({ nullable: true })
   school: string;
 
-  @Column()
+  @Column({ nullable: true })
   schoolCode: string;
-
-  @OneToMany(
-    () => ApplicationAdmissionRegistrationVoice,
-    (voice) => voice.application
-  )
-  voices: ApplicationAdmissionRegistrationVoice[];
 
   @CreateDateColumn({ type: "timestamp" })
   submitedAt: Date;
@@ -40,4 +33,31 @@ export class ApplicationAdmissionRegistration {
   )
   @JoinColumn()
   candidate: Candidate;
+
+  @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
+  status: EApplyStatus;
+
+  @Column()
+  majorId: string;
+
+  @Column()
+  subjectOne: string;
+
+  @Column({ type: "double" })
+  subjectOneScore: number;
+
+  @Column()
+  subjectTwo: string;
+
+  @Column({ type: "double" })
+  subjectTwoScore: number;
+
+  @Column()
+  subjectThree: string;
+
+  @Column({ type: "double" })
+  subjectThreeScore: number;
+
+  @Column({ type: "double" })
+  total: number;
 }

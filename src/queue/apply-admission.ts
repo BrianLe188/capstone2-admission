@@ -4,6 +4,9 @@ import CandidateService from "../services/candidate/candidate.service";
 import { Candidate } from "../services/candidate/candidate.entity";
 import ApplicationForStraightAdmissionAndPriorityConsiderationService from "../services/application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.service";
 import ObjectAdmissionService from "../services/object-admission/object-admission.service";
+import ApplicationAdmissionRegistrationService from "../services/application-admission-registration/application-admission-registration.service";
+import { MyEventEmitter } from "../events";
+import ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService from "../services/application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.service";
 
 const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
   const exchange = "admission";
@@ -48,6 +51,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
               email,
             },
           })) as Candidate | undefined;
+          let application;
 
           if (!candidate) {
             candidate = (await CandidateService.create({
@@ -73,6 +77,36 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
 
           switch (form) {
             case "admission_registration": {
+              const {
+                school,
+                schoolCode,
+                majorId,
+                subjectOne,
+                subjectOneScore,
+                subjectTwo,
+                subjectTwoScore,
+                subjectThree,
+                subjectThreeScore,
+              } = rest;
+              application =
+                await ApplicationAdmissionRegistrationService.create({
+                  body: {
+                    candidate,
+                    school,
+                    schoolCode,
+                    majorId,
+                    subjectOne,
+                    subjectOneScore,
+                    subjectTwo,
+                    subjectTwoScore,
+                    subjectThree,
+                    subjectThreeScore,
+                    total:
+                      Number(subjectOneScore) +
+                      Number(subjectTwoScore) +
+                      Number(subjectThreeScore),
+                  },
+                });
               break;
             }
             case "admission_with_high_school_script": {
@@ -85,22 +119,25 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                 subjectThree,
                 subjectThreeScore,
               } = rest;
-              ApplicationForAdmissionWithAHighSchoolScriptService.create({
-                body: {
-                  candidate,
-                  majorId,
-                  subjectOne,
-                  subjectOneScore,
-                  subjectTwo,
-                  subjectTwoScore,
-                  subjectThree,
-                  subjectThreeScore,
-                  total:
-                    Number(subjectOneScore) +
-                    Number(subjectTwoScore) +
-                    Number(subjectThreeScore),
-                },
-              });
+              application =
+                await ApplicationForAdmissionWithAHighSchoolScriptService.create(
+                  {
+                    body: {
+                      candidate,
+                      majorId,
+                      subjectOne,
+                      subjectOneScore,
+                      subjectTwo,
+                      subjectTwoScore,
+                      subjectThree,
+                      subjectThreeScore,
+                      total:
+                        Number(subjectOneScore) +
+                        Number(subjectTwoScore) +
+                        Number(subjectThreeScore),
+                    },
+                  }
+                );
               break;
             }
             case "admission_and_priority_consideration": {
@@ -111,21 +148,48 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                 },
               });
               if (objectAdmission) {
-                ApplicationForStraightAdmissionAndPriorityConsiderationService.create(
-                  {
-                    body: {
-                      candidate,
-                      majorId,
-                      objectAdmission,
-                    },
-                  }
-                );
+                application =
+                  await ApplicationForStraightAdmissionAndPriorityConsiderationService.create(
+                    {
+                      body: {
+                        candidate,
+                        majorId,
+                        objectAdmission,
+                      },
+                    }
+                  );
               }
               break;
             }
             case "admission_consideration_according_to_the_competence_assessment_test_result": {
+              const {
+                examRegistrationApplicationCode,
+                nameOfTheUniversityOrganizingTheExam,
+                resultOfExam,
+                majorId,
+              } = rest;
+              application =
+                await ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService.create(
+                  {
+                    body: {
+                      candidate,
+                      examRegistrationApplicationCode,
+                      nameOfTheUniversityOrganizingTheExam,
+                      resultOfExam,
+                      majorId,
+                    },
+                  }
+                );
               break;
             }
+          }
+
+          if (candidate && application) {
+            MyEventEmitter.emit("send_mail", {
+              email: candidate.email,
+              cccd: candidate.cccd,
+              form,
+            });
           }
         }
       } catch (error) {

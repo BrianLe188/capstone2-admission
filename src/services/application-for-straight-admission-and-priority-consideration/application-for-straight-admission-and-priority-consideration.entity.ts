@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { ObjectAdmission } from "../object-admission/object-admission.entity";
 import { Candidate } from "../candidate/candidate.entity";
+import { EApplyStatus } from "../../utils/enums";
 
 @Entity({
   name: "application_for_straight_admission_and_priority_consideration",
@@ -31,4 +32,7 @@ export class ApplicationForStraightAdmissionAndPriorityConsideration {
   @OneToOne(() => Candidate, (candidate) => candidate)
   @JoinColumn()
   candidate: Candidate;
+
+  @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
+  status: EApplyStatus;
 }
