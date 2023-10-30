@@ -18,8 +18,21 @@ const create = async (req: {
   } catch (error) {}
 };
 
+const getAll = async () => {
+  try {
+    const applications =
+      await applicationForAdmissionWithAHighSchoolScriptRepo.find({
+        relations: {
+          candidate: true,
+        },
+      });
+    return applications;
+  } catch (error) {}
+};
+
 const ApplicationForAdmissionWithAHighSchoolScriptService = {
   create,
+  getAll,
 };
 
 export default ApplicationForAdmissionWithAHighSchoolScriptService;

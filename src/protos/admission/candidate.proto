@@ -1,0 +1,41 @@
+syntax = 'proto3';
+
+package candidate;
+
+message Candidate {
+  optional string id = 1;
+  string fullName = 2;
+  string birthday = 3;
+  optional string birthplace = 4;
+  string cccd = 5;
+  string highschoolAddress = 6;
+  int32 highschoolGraduateYear = 7;
+  string phonenumber = 8;
+  string email = 9;
+  string permanentResidence = 10;
+  string addressToReceiveAdmissionNotice = 11;
+  optional string avatar = 12;
+}
+
+message Candidates {
+  repeated Candidate data = 1;
+}
+
+message UpdateCandidate {
+  string id = 1;
+  Candidate body = 2;
+}
+
+message CandidateResponse {
+  oneof response {
+    Candidate candidate = 1;
+    string error = 2;
+  }
+}
+
+message CandidatesResponse {
+  oneof response {
+    Candidates candidates = 1;
+    string error = 2;
+  }
+}

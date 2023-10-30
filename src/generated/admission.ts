@@ -16,12 +16,35 @@ export interface ProtoGrpcType {
     RequestEmpty: MessageTypeDefinition
     Target: MessageTypeDefinition
   }
+  application_high_school_script: {
+    ApplicationHighSchoolScript: MessageTypeDefinition
+    ApplicationHighSchoolScriptResponse: MessageTypeDefinition
+    ApplicationHighSchoolScriptWithCandidate: MessageTypeDefinition
+    ApplicationHighSchoolScripts: MessageTypeDefinition
+    ApplicationHighSchoolScriptsResponse: MessageTypeDefinition
+    UpdateApplicationHighSchoolScript: MessageTypeDefinition
+  }
+  application_registration: {
+    ApplicationRegistration: MessageTypeDefinition
+    ApplicationRegistrationResponse: MessageTypeDefinition
+    ApplicationRegistrationWithCandidate: MessageTypeDefinition
+    ApplicationRegistrations: MessageTypeDefinition
+    ApplicationRegistrationsResponse: MessageTypeDefinition
+    UpdateApplicationRegistration: MessageTypeDefinition
+  }
   area: {
     Area: MessageTypeDefinition
     AreaResponse: MessageTypeDefinition
     Areas: MessageTypeDefinition
     AreasResponse: MessageTypeDefinition
     UpdateArea: MessageTypeDefinition
+  }
+  candidate: {
+    Candidate: MessageTypeDefinition
+    CandidateResponse: MessageTypeDefinition
+    Candidates: MessageTypeDefinition
+    CandidatesResponse: MessageTypeDefinition
+    UpdateCandidate: MessageTypeDefinition
   }
   gender: {
     Gender: MessageTypeDefinition

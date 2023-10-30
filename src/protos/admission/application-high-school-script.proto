@@ -1,0 +1,59 @@
+syntax = 'proto3';
+
+package application_high_school_script;
+
+import './candidate.proto';
+
+message ApplicationHighSchoolScript {
+  optional string id = 1;
+  optional string status = 2;
+  optional string majorId = 3;
+  optional string subjectOne = 4;
+  optional double subjectOneScore = 5;
+  optional string subjectTwo = 6;
+  optional double subjectTwoScore = 7;
+  optional string subjectThree = 8;
+  optional double subjectThreeScore = 9;
+  optional double total = 10;
+  optional string submitedAt = 11;
+  optional string updatedAt = 12;
+}
+
+message ApplicationHighSchoolScriptWithCandidate {
+  optional string id = 1;
+  optional string status = 2;
+  optional string majorId = 3;
+  optional string subjectOne = 4;
+  optional double subjectOneScore = 5;
+  optional string subjectTwo = 6;
+  optional double subjectTwoScore = 7;
+  optional string subjectThree = 8;
+  optional double subjectThreeScore = 9;
+  optional double total = 10;
+  optional string submitedAt = 11;
+  optional string updatedAt = 12;
+  candidate.Candidate candidate = 13;
+}
+
+message ApplicationHighSchoolScripts {
+  repeated ApplicationHighSchoolScriptWithCandidate data = 1;
+}
+
+message UpdateApplicationHighSchoolScript {
+  string id = 1;
+  ApplicationHighSchoolScript body = 2;
+}
+
+message ApplicationHighSchoolScriptResponse {
+  oneof response {
+    ApplicationHighSchoolScript application = 1;
+    string error = 2;
+  }
+}
+
+message ApplicationHighSchoolScriptsResponse {
+  oneof response {
+    ApplicationHighSchoolScripts applications = 1;
+    string error = 2;
+  }
+}

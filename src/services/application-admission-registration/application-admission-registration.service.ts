@@ -19,8 +19,20 @@ const create = async (req: {
   } catch (error) {}
 };
 
+const getAll = async () => {
+  try {
+    const applications = await applicationAdmissionRegistrationRepo.find({
+      relations: {
+        candidate: true,
+      },
+    });
+    return applications;
+  } catch (error) {}
+};
+
 const ApplicationAdmissionRegistrationService = {
   create,
+  getAll,
 };
 
 export default ApplicationAdmissionRegistrationService;

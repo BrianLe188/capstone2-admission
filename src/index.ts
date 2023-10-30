@@ -17,6 +17,8 @@ import areaRPC from "./services/area/area.rpc";
 import priorityRPC from "./services/priority/priority.rpc";
 import objectRPC from "./services/object-admission/object-admission.rpc";
 import notificationQueue from "./queue/notification";
+import ApplicationAdmissionRegistrationRPC from "./services/application-admission-registration/application-admission-registration.rpc";
+import ApplicationForAdmissionWithAHighSchoolScriptServiceRPC from "./services/application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -31,6 +33,8 @@ async function main() {
     ...areaRPC,
     ...priorityRPC,
     ...objectRPC,
+    ...ApplicationAdmissionRegistrationRPC,
+    ...ApplicationForAdmissionWithAHighSchoolScriptServiceRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

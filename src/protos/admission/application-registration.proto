@@ -1,0 +1,63 @@
+syntax = 'proto3';
+
+package application_registration;
+
+import './candidate.proto';
+
+message ApplicationRegistration {
+  optional string id = 1;
+  optional string school = 2;
+  optional string schoolCode = 3;
+  optional string submitedAt = 4;
+  optional string updatedAt = 5;
+  optional string status = 6;
+  optional string majorId = 7;
+  optional string subjectOne = 8;
+  optional double subjectOneScore = 9;
+  optional string subjectTwo = 10;
+  optional double subjectTwoScore = 11;
+  optional string subjectThree = 12;
+  optional double subjectThreeScore = 13;
+  optional double total = 14;
+}
+
+message ApplicationRegistrationWithCandidate {
+  optional string id = 1;
+  optional string school = 2;
+  optional string schoolCode = 3;
+  optional string submitedAt = 4;
+  optional string updatedAt = 5;
+  optional string status = 6;
+  optional string majorId = 7;
+  optional string subjectOne = 8;
+  optional double subjectOneScore = 9;
+  optional string subjectTwo = 10;
+  optional double subjectTwoScore = 11;
+  optional string subjectThree = 12;
+  optional double subjectThreeScore = 13;
+  optional double total = 14;
+  candidate.Candidate candidate = 15;
+}
+
+message ApplicationRegistrations {
+  repeated ApplicationRegistrationWithCandidate data = 1;
+}
+
+message UpdateApplicationRegistration {
+  string id = 1;
+  ApplicationRegistration body = 2;
+}
+
+message ApplicationRegistrationResponse {
+  oneof response {
+    ApplicationRegistration application = 1;
+    string error = 2;
+  }
+}
+
+message ApplicationRegistrationsResponse {
+  oneof response {
+    ApplicationRegistrations applications = 1;
+    string error = 2;
+  }
+}
