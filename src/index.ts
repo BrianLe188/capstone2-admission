@@ -19,6 +19,8 @@ import objectRPC from "./services/object-admission/object-admission.rpc";
 import notificationQueue from "./queue/notification";
 import ApplicationAdmissionRegistrationRPC from "./services/application-admission-registration/application-admission-registration.rpc";
 import ApplicationForAdmissionWithAHighSchoolScriptServiceRPC from "./services/application-for-admission-with-a-high-school-script/application-for-admission-with-a-high-school-script.rpc";
+import ApplicationForStraightAdmissionAndPriorityConsiderationRPC from "./services/application-for-straight-admission-and-priority-consideration/application-for-straight-admission-and-priority-consideration.rpc";
+import ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC from "./services/application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.rpc";
 
 const packageDefinition = loadSync(PROTO_PATH);
 
@@ -35,6 +37,8 @@ async function main() {
     ...objectRPC,
     ...ApplicationAdmissionRegistrationRPC,
     ...ApplicationForAdmissionWithAHighSchoolScriptServiceRPC,
+    ...ApplicationForStraightAdmissionAndPriorityConsiderationRPC,
+    ...ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC,
   });
   if (process.env.ADMISSION_GRPC) {
     server.bindAsync(

@@ -8,6 +8,8 @@ import './priority.proto';
 import './object-admission.proto';
 import './application-registration.proto';
 import './application-high-school-script.proto';
+import './application-straight-priority.proto';
+import './application-test-result.proto';
 
 service Admission {
   rpc Default(GreetRequest) returns (GreetResponse) {}
@@ -35,6 +37,10 @@ service Admission {
   rpc GetAllApplicationRegistration(RequestEmpty) returns (application_registration.ApplicationRegistrationsResponse) {}
 
   rpc GetAllApplicationForAdmissionWithAHighSchoolScript(RequestEmpty) returns (application_high_school_script.ApplicationHighSchoolScriptsResponse) {}
+
+  rpc GetAllApplicationForStraightAdmissionAndPriorityConsideration(RequestEmpty) returns (application_straight_priority.ApplicationStraightPrioritiesResponse) {}
+
+  rpc GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(RequestEmpty) returns (application_test_result.ApplicationTestResultsResponse) {}
 }
 
 message Target {

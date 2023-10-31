@@ -1,0 +1,43 @@
+syntax = 'proto3';
+
+package application_straight_priority;
+
+import './candidate.proto';
+
+message ApplicationStraightPriority {
+  optional string id = 1;
+  optional string majorId = 2;
+  optional string attachDocument = 3;
+  optional string status = 4;
+}
+
+message ApplicationStraightPriorityWithCandidate {
+  optional string id = 1;
+  optional string majorId = 2;
+  optional string attachDocument = 3;
+  optional string status = 4;
+  candidate.Candidate candidate = 13;
+}
+
+message ApplicationStraightPriorities {
+  repeated ApplicationStraightPriorityWithCandidate data = 1;
+}
+
+message UpdateApplicationStraightPriorityScript {
+  string id = 1;
+  ApplicationStraightPriority body = 2;
+}
+
+message ApplicationStraightPriorityResponse {
+  oneof response {
+    ApplicationStraightPriority application = 1;
+    string error = 2;
+  }
+}
+
+message ApplicationStraightPrioritiesResponse {
+  oneof response {
+    ApplicationStraightPriorities applications = 1;
+    string error = 2;
+  }
+}

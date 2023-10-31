@@ -4,6 +4,8 @@ import type * as grpc from '@grpc/grpc-js'
 import type { MethodDefinition } from '@grpc/proto-loader'
 import type { ApplicationHighSchoolScriptsResponse as _application_high_school_script_ApplicationHighSchoolScriptsResponse, ApplicationHighSchoolScriptsResponse__Output as _application_high_school_script_ApplicationHighSchoolScriptsResponse__Output } from '../application_high_school_script/ApplicationHighSchoolScriptsResponse';
 import type { ApplicationRegistrationsResponse as _application_registration_ApplicationRegistrationsResponse, ApplicationRegistrationsResponse__Output as _application_registration_ApplicationRegistrationsResponse__Output } from '../application_registration/ApplicationRegistrationsResponse';
+import type { ApplicationStraightPrioritiesResponse as _application_straight_priority_ApplicationStraightPrioritiesResponse, ApplicationStraightPrioritiesResponse__Output as _application_straight_priority_ApplicationStraightPrioritiesResponse__Output } from '../application_straight_priority/ApplicationStraightPrioritiesResponse';
+import type { ApplicationTestResultsResponse as _application_test_result_ApplicationTestResultsResponse, ApplicationTestResultsResponse__Output as _application_test_result_ApplicationTestResultsResponse__Output } from '../application_test_result/ApplicationTestResultsResponse';
 import type { Area as _area_Area, Area__Output as _area_Area__Output } from '../area/Area';
 import type { AreaResponse as _area_AreaResponse, AreaResponse__Output as _area_AreaResponse__Output } from '../area/AreaResponse';
 import type { AreasResponse as _area_AreasResponse, AreasResponse__Output as _area_AreasResponse__Output } from '../area/AreasResponse';
@@ -108,6 +110,15 @@ export interface AdmissionClient extends grpc.Client {
   deletePriority(argument: _admission_Target, options: grpc.CallOptions, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   deletePriority(argument: _admission_Target, callback: grpc.requestCallback<_admission_Message__Output>): grpc.ClientUnaryCall;
   
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_application_test_result_ApplicationTestResultsResponse__Output>): grpc.ClientUnaryCall;
+  
   GetAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
   GetAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
   GetAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
@@ -116,6 +127,15 @@ export interface AdmissionClient extends grpc.Client {
   getAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
   getAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
   getAllApplicationForAdmissionWithAHighSchoolScript(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>): grpc.ClientUnaryCall;
+  
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, options: grpc.CallOptions, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
+  getAllApplicationForStraightAdmissionAndPriorityConsideration(argument: _admission_RequestEmpty, callback: grpc.requestCallback<_application_straight_priority_ApplicationStraightPrioritiesResponse__Output>): grpc.ClientUnaryCall;
   
   GetAllApplicationRegistration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_application_registration_ApplicationRegistrationsResponse__Output>): grpc.ClientUnaryCall;
   GetAllApplicationRegistration(argument: _admission_RequestEmpty, metadata: grpc.Metadata, callback: grpc.requestCallback<_application_registration_ApplicationRegistrationsResponse__Output>): grpc.ClientUnaryCall;
@@ -219,7 +239,11 @@ export interface AdmissionHandlers extends grpc.UntypedServiceImplementation {
   
   DeletePriority: grpc.handleUnaryCall<_admission_Target__Output, _admission_Message>;
   
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _application_test_result_ApplicationTestResultsResponse>;
+  
   GetAllApplicationForAdmissionWithAHighSchoolScript: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _application_high_school_script_ApplicationHighSchoolScriptsResponse>;
+  
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _application_straight_priority_ApplicationStraightPrioritiesResponse>;
   
   GetAllApplicationRegistration: grpc.handleUnaryCall<_admission_RequestEmpty__Output, _application_registration_ApplicationRegistrationsResponse>;
   
@@ -251,7 +275,9 @@ export interface AdmissionDefinition extends grpc.ServiceDefinition {
   DeleteGender: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeleteObjectAdmission: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
   DeletePriority: MethodDefinition<_admission_Target, _admission_Message, _admission_Target__Output, _admission_Message__Output>
+  GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult: MethodDefinition<_admission_RequestEmpty, _application_test_result_ApplicationTestResultsResponse, _admission_RequestEmpty__Output, _application_test_result_ApplicationTestResultsResponse__Output>
   GetAllApplicationForAdmissionWithAHighSchoolScript: MethodDefinition<_admission_RequestEmpty, _application_high_school_script_ApplicationHighSchoolScriptsResponse, _admission_RequestEmpty__Output, _application_high_school_script_ApplicationHighSchoolScriptsResponse__Output>
+  GetAllApplicationForStraightAdmissionAndPriorityConsideration: MethodDefinition<_admission_RequestEmpty, _application_straight_priority_ApplicationStraightPrioritiesResponse, _admission_RequestEmpty__Output, _application_straight_priority_ApplicationStraightPrioritiesResponse__Output>
   GetAllApplicationRegistration: MethodDefinition<_admission_RequestEmpty, _application_registration_ApplicationRegistrationsResponse, _admission_RequestEmpty__Output, _application_registration_ApplicationRegistrationsResponse__Output>
   GetAllArea: MethodDefinition<_admission_RequestEmpty, _area_AreasResponse, _admission_RequestEmpty__Output, _area_AreasResponse__Output>
   GetAllGender: MethodDefinition<_admission_RequestEmpty, _gender_GendersResponse, _admission_RequestEmpty__Output, _gender_GendersResponse__Output>

@@ -1,10 +1,12 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { ObjectAdmission } from "../object-admission/object-admission.entity";
 import { Candidate } from "../candidate/candidate.entity";
@@ -35,4 +37,10 @@ export class ApplicationForStraightAdmissionAndPriorityConsideration {
 
   @Column({ type: "enum", enum: EApplyStatus, default: EApplyStatus.PENDING })
   status: EApplyStatus;
+
+  @CreateDateColumn({ type: "timestamp" })
+  submitedAt: Date;
+
+  @UpdateDateColumn({ type: "timestamp" })
+  updatedAt: Date;
 }

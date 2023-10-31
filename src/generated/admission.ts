@@ -32,6 +32,22 @@ export interface ProtoGrpcType {
     ApplicationRegistrationsResponse: MessageTypeDefinition
     UpdateApplicationRegistration: MessageTypeDefinition
   }
+  application_straight_priority: {
+    ApplicationStraightPriorities: MessageTypeDefinition
+    ApplicationStraightPrioritiesResponse: MessageTypeDefinition
+    ApplicationStraightPriority: MessageTypeDefinition
+    ApplicationStraightPriorityResponse: MessageTypeDefinition
+    ApplicationStraightPriorityWithCandidate: MessageTypeDefinition
+    UpdateApplicationStraightPriorityScript: MessageTypeDefinition
+  }
+  application_test_result: {
+    ApplicationTestResult: MessageTypeDefinition
+    ApplicationTestResultResponse: MessageTypeDefinition
+    ApplicationTestResultWithCandidate: MessageTypeDefinition
+    ApplicationTestResults: MessageTypeDefinition
+    ApplicationTestResultsResponse: MessageTypeDefinition
+    UpdateApplicationTestResult: MessageTypeDefinition
+  }
   area: {
     Area: MessageTypeDefinition
     AreaResponse: MessageTypeDefinition

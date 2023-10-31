@@ -25,8 +25,21 @@ const create = async (req: {
   } catch (error) {}
 };
 
+const getAll = async () => {
+  try {
+    const applications =
+      await applicationForStraightAdmissionAndPriorityConsiderationRepo.find({
+        relations: {
+          candidate: true,
+        },
+      });
+    return applications;
+  } catch (error) {}
+};
+
 const ApplicationForStraightAdmissionAndPriorityConsiderationService = {
   create,
+  getAll,
 };
 
 export default ApplicationForStraightAdmissionAndPriorityConsiderationService;

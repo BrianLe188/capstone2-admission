@@ -25,9 +25,24 @@ const create = async (req: {
   } catch (error) {}
 };
 
+const getAll = async () => {
+  try {
+    const applications =
+      await applicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRepo.find(
+        {
+          relations: {
+            candidate: true,
+          },
+        }
+      );
+    return applications;
+  } catch (error) {}
+};
+
 const ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService =
   {
     create,
+    getAll,
   };
 
 export default ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService;

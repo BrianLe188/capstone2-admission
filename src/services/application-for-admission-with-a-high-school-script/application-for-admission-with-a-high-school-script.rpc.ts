@@ -1,6 +1,6 @@
 import ApplicationForAdmissionWithAHighSchoolScriptService from "./application-for-admission-with-a-high-school-script.service";
 
-const GetAllApplicationForAdmissionWithAHighSchoolScriptService = async (
+const GetAllApplicationForAdmissionWithAHighSchoolScript = async (
   call: any,
   callback: any
 ) => {
@@ -16,7 +16,7 @@ const GetAllApplicationForAdmissionWithAHighSchoolScriptService = async (
 };
 
 const ApplicationForAdmissionWithAHighSchoolScriptServiceRPC = {
-  GetAllApplicationForAdmissionWithAHighSchoolScriptService,
+  GetAllApplicationForAdmissionWithAHighSchoolScript,
 };
 
 export default ApplicationForAdmissionWithAHighSchoolScriptServiceRPC;

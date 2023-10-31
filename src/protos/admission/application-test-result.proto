@@ -1,0 +1,55 @@
+syntax = 'proto3';
+
+package application_test_result;
+
+import './candidate.proto';
+
+message ApplicationTestResult {
+  optional string id = 1;
+  optional string status = 2;
+  optional string examRegistrationApplicationCode = 3;
+  optional string nameOfTheUniversityOrganizingTheExam = 4;
+  optional double resultOfExam = 5;
+  optional string majorId = 6;
+  optional string attachPriorityDocument = 7;
+  optional string attachOtherDocument = 8;
+  optional string submitedAt = 9;
+  optional string uipdatedAt = 10;
+}
+
+message ApplicationTestResultWithCandidate {
+  optional string id = 1;
+  optional string status = 2;
+  optional string examRegistrationApplicationCode = 3;
+  optional string nameOfTheUniversityOrganizingTheExam = 4;
+  optional double resultOfExam = 5;
+  optional string majorId = 6;
+  optional string attachPriorityDocument = 7;
+  optional string attachOtherDocument = 8;
+  optional string submitedAt = 9;
+  optional string uipdatedAt = 10;
+  candidate.Candidate candidate = 11;
+}
+
+message ApplicationTestResults {
+  repeated ApplicationTestResultWithCandidate data = 1;
+}
+
+message UpdateApplicationTestResult {
+  string id = 1;
+  ApplicationTestResult body = 2;
+}
+
+message ApplicationTestResultResponse {
+  oneof response {
+    ApplicationTestResult application = 1;
+    string error = 2;
+  }
+}
+
+message ApplicationTestResultsResponse {
+  oneof response {
+    ApplicationTestResults applications = 1;
+    string error = 2;
+  }
+}
