@@ -24,6 +24,9 @@ export class ApplicationForAdmissionWithAHighSchoolScript {
   majorId: string;
 
   @Column()
+  subMajorId: string;
+
+  @Column()
   subjectOne: string;
 
   @Column({ type: "double" })

@@ -32,6 +32,9 @@ export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessm
   @Column()
   majorId: string;
 
+  @Column()
+  subMajorId: string;
+
   @Column({ type: "text", nullable: true })
   attachPriorityDocument: string;
 

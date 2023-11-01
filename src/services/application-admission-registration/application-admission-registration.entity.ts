@@ -41,6 +41,9 @@ export class ApplicationAdmissionRegistration {
   majorId: string;
 
   @Column()
+  subMajorId: string;
+
+  @Column()
   subjectOne: string;
 
   @Column({ type: "double" })
