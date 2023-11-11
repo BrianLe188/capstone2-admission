@@ -59,4 +59,7 @@ export class ApplicationForAdmissionWithAHighSchoolScript {
 
   @UpdateDateColumn({ type: "timestamp" })
   updatedAt: Date;
+
+  @Column()
+  code: string;
 }

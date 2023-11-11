@@ -7,6 +7,7 @@ import ObjectAdmissionService from "../services/object-admission/object-admissio
 import ApplicationAdmissionRegistrationService from "../services/application-admission-registration/application-admission-registration.service";
 import { MyEventEmitter } from "../events";
 import ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService from "../services/application-for-admission-consideration-according-to-the-competence-assessment-test-result/application-for-admission-consideration-according-to-the-competence-assessment-test-result.service";
+import { generateRandomString } from "../utils/common";
 
 const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
   const exchange = "admission";
@@ -75,6 +76,8 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
             })) as Candidate | undefined;
           }
 
+          const code = generateRandomString(8);
+
           switch (form) {
             case "admission_registration": {
               const {
@@ -105,6 +108,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                       Number(subjectOneScore) +
                       Number(subjectTwoScore) +
                       Number(subjectThreeScore),
+                    code,
                   },
                 });
               break;
@@ -118,6 +122,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                 subjectTwoScore,
                 subjectThree,
                 subjectThreeScore,
+                subMajorId,
               } = rest;
               application =
                 await ApplicationForAdmissionWithAHighSchoolScriptService.create(
@@ -135,13 +140,15 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                         Number(subjectOneScore) +
                         Number(subjectTwoScore) +
                         Number(subjectThreeScore),
+                      code,
+                      subMajorId,
                     },
                   }
                 );
               break;
             }
             case "admission_and_priority_consideration": {
-              const { objectAdmission: objectId, majorId } = rest;
+              const { objectAdmission: objectId, majorId, subMajorId } = rest;
               const objectAdmission = await ObjectAdmissionService.findOne({
                 body: {
                   id: objectId,
@@ -155,6 +162,8 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                         candidate,
                         majorId,
                         objectAdmission,
+                        code,
+                        subMajorId,
                       },
                     }
                   );
@@ -177,6 +186,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
                       nameOfTheUniversityOrganizingTheExam,
                       resultOfExam,
                       majorId,
+                      code,
                     },
                   }
                 );
@@ -188,7 +198,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
             MyEventEmitter.emit("send_mail", {
               email: candidate.email,
               cccd: candidate.cccd,
-              form,
+              application,
             });
           }
         }

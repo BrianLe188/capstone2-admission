@@ -63,4 +63,7 @@ export class ApplicationAdmissionRegistration {
 
   @Column({ type: "double" })
   total: number;
+
+  @Column()
+  code: string;
 }

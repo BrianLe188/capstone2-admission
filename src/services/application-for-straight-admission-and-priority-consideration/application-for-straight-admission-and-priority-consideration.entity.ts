@@ -46,4 +46,7 @@ export class ApplicationForStraightAdmissionAndPriorityConsideration {
 
   @UpdateDateColumn({ type: "timestamp" })
   updatedAt: Date;
+
+  @Column()
+  code: string;
 }

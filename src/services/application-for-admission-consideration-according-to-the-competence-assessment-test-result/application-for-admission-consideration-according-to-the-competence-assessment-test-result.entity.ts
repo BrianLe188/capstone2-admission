@@ -50,4 +50,7 @@ export class ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessm
   @OneToOne(() => Candidate, (candidate) => candidate)
   @JoinColumn()
   candidate: Candidate;
+
+  @Column()
+  code: string;
 }
