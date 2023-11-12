@@ -199,6 +199,7 @@ const applyAdmissionQueue = async ({ channel }: { channel: Channel }) => {
               email: candidate.email,
               cccd: candidate.cccd,
               application,
+              type: "apply_success",
             });
           }
         }

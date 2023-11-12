@@ -11,8 +11,23 @@ const GetAllApplicationRegistration = async (call: any, callback: any) => {
   } catch (error) {}
 };
 
+const GetApplicationRegistrationByCode = async (call: any, callback: any) => {
+  try {
+    const { code } = call.request;
+    const application =
+      await ApplicationAdmissionRegistrationService.getByOption({
+        code,
+        relations: {
+          candidate: true,
+        },
+      });
+    callback(null, application);
+  } catch (error) {}
+};
+
 const ApplicationAdmissionRegistrationRPC = {
   GetAllApplicationRegistration,
+  GetApplicationRegistrationByCode,
 };
 
 export default ApplicationAdmissionRegistrationRPC;

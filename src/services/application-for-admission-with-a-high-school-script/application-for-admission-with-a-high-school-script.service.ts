@@ -30,9 +30,24 @@ const getAll = async () => {
   } catch (error) {}
 };
 
+const getByOption = async (option: any = {}) => {
+  try {
+    const { relations, ...rest } = option;
+    const application =
+      await applicationForAdmissionWithAHighSchoolScriptRepo.findOne({
+        where: rest,
+        relations,
+      });
+    return application;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const ApplicationForAdmissionWithAHighSchoolScriptService = {
   create,
   getAll,
+  getByOption,
 };
 
 export default ApplicationForAdmissionWithAHighSchoolScriptService;

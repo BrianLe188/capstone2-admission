@@ -17,6 +17,7 @@ message ApplicationHighSchoolScript {
   optional double total = 10;
   optional string submitedAt = 11;
   optional string updatedAt = 12;
+  optional string code = 13;
 }
 
 message ApplicationHighSchoolScriptWithCandidate {
@@ -33,6 +34,7 @@ message ApplicationHighSchoolScriptWithCandidate {
   optional string submitedAt = 11;
   optional string updatedAt = 12;
   candidate.Candidate candidate = 13;
+  optional string code = 14;
 }
 
 message ApplicationHighSchoolScripts {

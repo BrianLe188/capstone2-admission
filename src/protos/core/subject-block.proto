@@ -1,0 +1,51 @@
+syntax = 'proto3';
+
+package subject_block;
+
+import './subject.proto';
+
+message SubjectBlock {
+  optional string id = 1;
+  string name = 2;
+  repeated string subjects = 3;
+}
+
+message SubjectBlockWithSubjects {
+  optional string id = 1;
+  string name = 2;
+  repeated subject.Subject subjects = 3;
+}
+
+message SubjectBlocks {
+  repeated SubjectBlockWithSubjects data = 1;
+}
+
+message BlockCodeAndSubject {
+  string name = 1;
+  string s1 = 2;
+  string s2 = 3;
+  string s3 = 4;
+}
+
+message BlockCodeAndSubjects {
+  repeated BlockCodeAndSubject data = 1;
+}
+
+message UpdateSubjectBlock {
+  string id = 1;
+  SubjectBlock body = 2;
+}
+
+message SubjectBlockResponse {
+  oneof response {
+    SubjectBlock block = 1;
+    string error = 2;
+  }
+}
+
+message SubjectBlocksResponse {
+  oneof response {
+    SubjectBlocks blocks = 1;
+    string error = 2;
+  }
+}

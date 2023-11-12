@@ -11,7 +11,8 @@ export interface ApplicationTestResult {
   'attachPriorityDocument'?: (string);
   'attachOtherDocument'?: (string);
   'submitedAt'?: (string);
-  'uipdatedAt'?: (string);
+  'updatedAt'?: (string);
+  'code'?: (string);
   '_id'?: "id";
   '_status'?: "status";
   '_examRegistrationApplicationCode'?: "examRegistrationApplicationCode";
@@ -21,7 +22,8 @@ export interface ApplicationTestResult {
   '_attachPriorityDocument'?: "attachPriorityDocument";
   '_attachOtherDocument'?: "attachOtherDocument";
   '_submitedAt'?: "submitedAt";
-  '_uipdatedAt'?: "uipdatedAt";
+  '_updatedAt'?: "updatedAt";
+  '_code'?: "code";
 }
 
 export interface ApplicationTestResult__Output {
@@ -34,7 +36,8 @@ export interface ApplicationTestResult__Output {
   'attachPriorityDocument'?: (string);
   'attachOtherDocument'?: (string);
   'submitedAt'?: (string);
-  'uipdatedAt'?: (string);
+  'updatedAt'?: (string);
+  'code'?: (string);
   '_id': "id";
   '_status': "status";
   '_examRegistrationApplicationCode': "examRegistrationApplicationCode";
@@ -44,5 +47,6 @@ export interface ApplicationTestResult__Output {
   '_attachPriorityDocument': "attachPriorityDocument";
   '_attachOtherDocument': "attachOtherDocument";
   '_submitedAt': "submitedAt";
-  '_uipdatedAt': "uipdatedAt";
+  '_updatedAt': "updatedAt";
+  '_code': "code";
 }

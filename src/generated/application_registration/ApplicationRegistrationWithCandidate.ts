@@ -18,6 +18,7 @@ export interface ApplicationRegistrationWithCandidate {
   'subjectThreeScore'?: (number | string);
   'total'?: (number | string);
   'candidate'?: (_candidate_Candidate | null);
+  'code'?: (string);
   '_id'?: "id";
   '_school'?: "school";
   '_schoolCode'?: "schoolCode";
@@ -32,6 +33,7 @@ export interface ApplicationRegistrationWithCandidate {
   '_subjectThree'?: "subjectThree";
   '_subjectThreeScore'?: "subjectThreeScore";
   '_total'?: "total";
+  '_code'?: "code";
 }
 
 export interface ApplicationRegistrationWithCandidate__Output {
@@ -50,6 +52,7 @@ export interface ApplicationRegistrationWithCandidate__Output {
   'subjectThreeScore'?: (number);
   'total'?: (number);
   'candidate': (_candidate_Candidate__Output | null);
+  'code'?: (string);
   '_id': "id";
   '_school': "school";
   '_schoolCode': "schoolCode";
@@ -64,4 +67,5 @@ export interface ApplicationRegistrationWithCandidate__Output {
   '_subjectThree': "subjectThree";
   '_subjectThreeScore': "subjectThreeScore";
   '_total': "total";
+  '_code': "code";
 }

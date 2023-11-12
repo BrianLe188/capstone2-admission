@@ -1,0 +1,60 @@
+syntax = 'proto3';
+
+package majors;
+
+import './subject-block.proto';
+import './sub-majors.proto';
+
+message Majors {
+  optional string id = 1;
+  string name = 2;
+  string educationalLevel = 3;
+  string code = 4;
+  optional string description = 5;
+  repeated string basedOnHighSchoolExamResults = 6;
+  repeated string basedOnHighSchoolTranscripts = 7;
+}
+
+message MajorWithSubjectBlocks {
+  optional string id = 1;
+  string name = 2;
+  string educationalLevel = 3;
+  string code = 4;
+  optional string description = 5;
+  repeated subject_block.SubjectBlock basedOnHighSchoolExamResults = 6;
+  repeated subject_block.SubjectBlock basedOnHighSchoolTranscripts = 7;
+  repeated sub_major.SubMajors subMajors = 8;
+}
+
+message MajorCodeAndSubjectBlockCode {
+  string code = 1;
+  string script = 2;
+  string result = 3;
+}
+
+message MajorCodeAndSubjectBlockCodes {
+  repeated MajorCodeAndSubjectBlockCode data = 1;
+}
+
+message Majorss {
+  repeated MajorWithSubjectBlocks data = 1;
+}
+
+message UpdateMajors {
+  string id = 1;
+  Majors body = 2;
+}
+
+message MajorsResponse {
+  oneof response {
+    Majors major = 1;
+    string error = 2;
+  }
+}
+
+message MajorssResponse {
+  oneof response {
+    Majorss majors = 1;
+    string error = 2;
+  }
+}

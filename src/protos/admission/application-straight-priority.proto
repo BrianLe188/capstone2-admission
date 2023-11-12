@@ -9,6 +9,7 @@ message ApplicationStraightPriority {
   optional string majorId = 2;
   optional string attachDocument = 3;
   optional string status = 4;
+  optional string code = 5;
 }
 
 message ApplicationStraightPriorityWithCandidate {
@@ -16,7 +17,8 @@ message ApplicationStraightPriorityWithCandidate {
   optional string majorId = 2;
   optional string attachDocument = 3;
   optional string status = 4;
-  candidate.Candidate candidate = 13;
+  candidate.Candidate candidate = 5;
+  optional string code = 6;
 }
 
 message ApplicationStraightPriorities {

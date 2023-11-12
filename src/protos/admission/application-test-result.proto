@@ -14,7 +14,8 @@ message ApplicationTestResult {
   optional string attachPriorityDocument = 7;
   optional string attachOtherDocument = 8;
   optional string submitedAt = 9;
-  optional string uipdatedAt = 10;
+  optional string updatedAt = 10;
+  optional string code = 11;
 }
 
 message ApplicationTestResultWithCandidate {
@@ -29,6 +30,7 @@ message ApplicationTestResultWithCandidate {
   optional string submitedAt = 9;
   optional string uipdatedAt = 10;
   candidate.Candidate candidate = 11;
+  optional string code = 12;
 }
 
 message ApplicationTestResults {

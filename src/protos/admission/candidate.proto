@@ -2,6 +2,10 @@ syntax = 'proto3';
 
 package candidate;
 
+import './gender.proto';
+import './area.proto';
+import './priority.proto';
+
 message Candidate {
   optional string id = 1;
   string fullName = 2;
@@ -15,6 +19,9 @@ message Candidate {
   string permanentResidence = 10;
   string addressToReceiveAdmissionNotice = 11;
   optional string avatar = 12;
+  optional priority.Priority priority = 13;
+  optional area.Area area = 14;
+  optional gender.Gender gender = 15;
 }
 
 message Candidates {

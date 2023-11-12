@@ -10,6 +10,7 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 export interface ProtoGrpcType {
   admission: {
     Admission: SubtypeConstructor<typeof grpc.Client, _admission_AdmissionClient> & { service: _admission_AdmissionDefinition }
+    Code: MessageTypeDefinition
     GreetRequest: MessageTypeDefinition
     GreetResponse: MessageTypeDefinition
     Message: MessageTypeDefinition

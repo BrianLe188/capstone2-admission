@@ -1,0 +1,91 @@
+syntax = 'proto3';
+
+package core;
+
+import './module.proto';
+import './member-school.proto';
+import './majors.proto';
+import './subject.proto';
+import './subject-block.proto';
+import './file.proto';
+import './sub-majors.proto';
+import './rule.proto';
+import './certificates.proto';
+
+service Core {
+  rpc Default(GreetRequest) returns (GreetResponse) {}
+
+  rpc CreateModule(module.Module) returns (module.ModuleResponse) {}
+  rpc UpdateModule(module.UpdateModule) returns (module.ModuleResponse) {}
+  rpc DeleteModule(Target) returns (Message) {}
+  rpc GetAllModule(RequestEmpty) returns (module.ModulesResponse) {}
+
+  rpc CreateMemberSchool(member_school.MemberSchool) returns (member_school.MemberSchoolResponse) {}
+  rpc UpdateMemberSchool(member_school.UpdateMemberSchool) returns (member_school.MemberSchoolResponse) {}
+  rpc DeleteMemberSchool(Target) returns (Message) {}
+  rpc GetAllMemberSchool(RequestEmpty) returns (member_school.MemberSchoolsResponse) {}
+
+  rpc CreateMajor(majors.Majors) returns (majors.MajorsResponse) {}
+  rpc UpdateMajor(majors.UpdateMajors) returns (majors.MajorsResponse) {}
+  rpc DeleteMajor(Target) returns (Message) {}
+  rpc GetAllMajors(RequestEmpty) returns (majors.MajorssResponse) {}
+  rpc ImportMajor(majors.Majorss) returns (Message) {}
+  rpc ImportSubjectBlockIntoMajor(majors.MajorCodeAndSubjectBlockCodes) returns (Message) {}
+
+  rpc CreateSubject(subject.Subject) returns (subject.SubjectResponse) {}
+  rpc UpdateSubject(subject.UpdateSubject) returns (subject.SubjectResponse) {}
+  rpc DeleteSubject(Target) returns (Message) {}
+  rpc GetAllSubject(RequestEmpty) returns (subject.SubjectsResponse) {}
+  rpc ImportSubject(Strings) returns (Message) {}
+
+  rpc CreateSubjectBlock(subject_block.SubjectBlock) returns (subject_block.SubjectBlockResponse) {}
+  rpc UpdateSubjectBlock(subject_block.UpdateSubjectBlock) returns (subject_block.SubjectBlockResponse) {}
+  rpc DeleteSubjectBlock(Target) returns (Message) {}
+  rpc GetAllSubjectBlock(RequestEmpty) returns (subject_block.SubjectBlocksResponse) {}
+  rpc ImportSubjectBlock(Strings) returns (Message) {}
+  rpc ImportSubjectIntoBlock(subject_block.BlockCodeAndSubjects) returns (Message) {}
+
+  rpc CreateFile(file.File) returns (file.FileResponse) {}
+  rpc UpdateFile(file.UpdateFile) returns (file.FileResponse) {}
+  rpc DeleteFile(Target) returns (Message) {}
+  rpc GetAllFiles(RequestEmpty) returns (file.FilesResponse) {}
+
+  rpc CreateSubMajor(sub_major.SubMajors) returns (sub_major.SubMajorsResponse) {}
+  rpc UpdateSubMajor(sub_major.UpdateSubMajors) returns (sub_major.SubMajorsResponse) {}
+  rpc DeleteSubMajor(Target) returns (Message) {}
+  rpc GetAllSubMajors(RequestEmpty) returns (sub_major.SubMajorssResponse) {}
+  rpc ImportSubMajor(sub_major.SubMajorss) returns (Message) {}
+
+  rpc CreateRule(rule.Rule) returns (rule.RuleResponse) {}
+  rpc UpdateRule(rule.UpdateRule) returns (rule.RuleResponse) {}
+  rpc DeleteRule(Target) returns (Message) {}
+  rpc GetAllRule(RequestEmpty) returns (rule.RulesResponse) {}
+
+  rpc CreateCertificate(certificate.Certificate) returns (certificate.CertificateResponse) {}
+  rpc UpdateCertificate(certificate.UpdateCertificate) returns (certificate.CertificateResponse) {}
+  rpc DeleteCertificate(Target) returns (Message) {}
+  rpc GetAllCertificate(RequestEmpty) returns (certificate.CertificatesResponse) {}
+}
+
+message Target {
+  string id = 1;
+}
+
+message RequestEmpty {}
+
+message Message {
+  string message = 1;
+}
+
+message GreetRequest {
+  string name = 1;
+  string language_code = 2;
+}
+
+message GreetResponse {
+  string greeting = 1;
+}
+
+message Strings {
+  repeated string data = 1;
+}

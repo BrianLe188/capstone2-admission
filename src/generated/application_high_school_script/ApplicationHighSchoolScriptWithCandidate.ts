@@ -16,6 +16,7 @@ export interface ApplicationHighSchoolScriptWithCandidate {
   'submitedAt'?: (string);
   'updatedAt'?: (string);
   'candidate'?: (_candidate_Candidate | null);
+  'code'?: (string);
   '_id'?: "id";
   '_status'?: "status";
   '_majorId'?: "majorId";
@@ -28,6 +29,7 @@ export interface ApplicationHighSchoolScriptWithCandidate {
   '_total'?: "total";
   '_submitedAt'?: "submitedAt";
   '_updatedAt'?: "updatedAt";
+  '_code'?: "code";
 }
 
 export interface ApplicationHighSchoolScriptWithCandidate__Output {
@@ -44,6 +46,7 @@ export interface ApplicationHighSchoolScriptWithCandidate__Output {
   'submitedAt'?: (string);
   'updatedAt'?: (string);
   'candidate': (_candidate_Candidate__Output | null);
+  'code'?: (string);
   '_id': "id";
   '_status': "status";
   '_majorId': "majorId";
@@ -56,4 +59,5 @@ export interface ApplicationHighSchoolScriptWithCandidate__Output {
   '_total': "total";
   '_submitedAt': "submitedAt";
   '_updatedAt': "updatedAt";
+  '_code': "code";
 }

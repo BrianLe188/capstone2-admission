@@ -19,6 +19,7 @@ message ApplicationRegistration {
   optional string subjectThree = 12;
   optional double subjectThreeScore = 13;
   optional double total = 14;
+  optional string code = 15;
 }
 
 message ApplicationRegistrationWithCandidate {
@@ -37,6 +38,7 @@ message ApplicationRegistrationWithCandidate {
   optional double subjectThreeScore = 13;
   optional double total = 14;
   candidate.Candidate candidate = 15;
+  optional string code = 16;
 }
 
 message ApplicationRegistrations {

@@ -37,9 +37,26 @@ const getAll = async () => {
   } catch (error) {}
 };
 
+const getByOption = async (option: any = {}) => {
+  try {
+    const { relations, ...rest } = option;
+    const application =
+      await applicationForStraightAdmissionAndPriorityConsiderationRepo.findOne(
+        {
+          where: rest,
+          relations,
+        }
+      );
+    return application;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const ApplicationForStraightAdmissionAndPriorityConsiderationService = {
   create,
   getAll,
+  getByOption,
 };
 
 export default ApplicationForStraightAdmissionAndPriorityConsiderationService;

@@ -8,10 +8,12 @@ export interface ApplicationStraightPriorityWithCandidate {
   'attachDocument'?: (string);
   'status'?: (string);
   'candidate'?: (_candidate_Candidate | null);
+  'code'?: (string);
   '_id'?: "id";
   '_majorId'?: "majorId";
   '_attachDocument'?: "attachDocument";
   '_status'?: "status";
+  '_code'?: "code";
 }
 
 export interface ApplicationStraightPriorityWithCandidate__Output {
@@ -20,8 +22,10 @@ export interface ApplicationStraightPriorityWithCandidate__Output {
   'attachDocument'?: (string);
   'status'?: (string);
   'candidate': (_candidate_Candidate__Output | null);
+  'code'?: (string);
   '_id': "id";
   '_majorId': "majorId";
   '_attachDocument': "attachDocument";
   '_status': "status";
+  '_code': "code";
 }

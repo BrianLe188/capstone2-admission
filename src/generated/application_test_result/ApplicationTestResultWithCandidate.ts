@@ -14,6 +14,7 @@ export interface ApplicationTestResultWithCandidate {
   'submitedAt'?: (string);
   'uipdatedAt'?: (string);
   'candidate'?: (_candidate_Candidate | null);
+  'code'?: (string);
   '_id'?: "id";
   '_status'?: "status";
   '_examRegistrationApplicationCode'?: "examRegistrationApplicationCode";
@@ -24,6 +25,7 @@ export interface ApplicationTestResultWithCandidate {
   '_attachOtherDocument'?: "attachOtherDocument";
   '_submitedAt'?: "submitedAt";
   '_uipdatedAt'?: "uipdatedAt";
+  '_code'?: "code";
 }
 
 export interface ApplicationTestResultWithCandidate__Output {
@@ -38,6 +40,7 @@ export interface ApplicationTestResultWithCandidate__Output {
   'submitedAt'?: (string);
   'uipdatedAt'?: (string);
   'candidate': (_candidate_Candidate__Output | null);
+  'code'?: (string);
   '_id': "id";
   '_status': "status";
   '_examRegistrationApplicationCode': "examRegistrationApplicationCode";
@@ -48,4 +51,5 @@ export interface ApplicationTestResultWithCandidate__Output {
   '_attachOtherDocument': "attachOtherDocument";
   '_submitedAt': "submitedAt";
   '_uipdatedAt': "uipdatedAt";
+  '_code': "code";
 }

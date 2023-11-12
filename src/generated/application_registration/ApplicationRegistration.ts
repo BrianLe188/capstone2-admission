@@ -16,6 +16,7 @@ export interface ApplicationRegistration {
   'subjectThree'?: (string);
   'subjectThreeScore'?: (number | string);
   'total'?: (number | string);
+  'code'?: (string);
   '_id'?: "id";
   '_school'?: "school";
   '_schoolCode'?: "schoolCode";
@@ -30,6 +31,7 @@ export interface ApplicationRegistration {
   '_subjectThree'?: "subjectThree";
   '_subjectThreeScore'?: "subjectThreeScore";
   '_total'?: "total";
+  '_code'?: "code";
 }
 
 export interface ApplicationRegistration__Output {
@@ -47,6 +49,7 @@ export interface ApplicationRegistration__Output {
   'subjectThree'?: (string);
   'subjectThreeScore'?: (number);
   'total'?: (number);
+  'code'?: (string);
   '_id': "id";
   '_school': "school";
   '_schoolCode': "schoolCode";
@@ -61,4 +64,5 @@ export interface ApplicationRegistration__Output {
   '_subjectThree': "subjectThree";
   '_subjectThreeScore': "subjectThreeScore";
   '_total': "total";
+  '_code': "code";
 }

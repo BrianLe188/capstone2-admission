@@ -13,9 +13,27 @@ const GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessme
     } catch (error) {}
   };
 
+const GetApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultByCode =
+  async (call: any, callback: any) => {
+    try {
+      const { code } = call.request;
+      const application =
+        await ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService.getByOption(
+          {
+            code,
+            relations: {
+              candidate: true,
+            },
+          }
+        );
+      callback(null, application);
+    } catch (error) {}
+  };
+
 const ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC =
   {
     GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult,
+    GetApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultByCode,
   };
 
 export default ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC;

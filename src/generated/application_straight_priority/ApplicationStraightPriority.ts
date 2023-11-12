@@ -6,10 +6,12 @@ export interface ApplicationStraightPriority {
   'majorId'?: (string);
   'attachDocument'?: (string);
   'status'?: (string);
+  'code'?: (string);
   '_id'?: "id";
   '_majorId'?: "majorId";
   '_attachDocument'?: "attachDocument";
   '_status'?: "status";
+  '_code'?: "code";
 }
 
 export interface ApplicationStraightPriority__Output {
@@ -17,8 +19,10 @@ export interface ApplicationStraightPriority__Output {
   'majorId'?: (string);
   'attachDocument'?: (string);
   'status'?: (string);
+  'code'?: (string);
   '_id': "id";
   '_majorId': "majorId";
   '_attachDocument': "attachDocument";
   '_status': "status";
+  '_code': "code";
 }

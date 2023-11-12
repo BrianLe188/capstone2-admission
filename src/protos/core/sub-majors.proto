@@ -1,0 +1,54 @@
+syntax = 'proto3';
+
+package sub_major;
+
+import './majors.proto';
+import './certificates.proto';
+
+message SubMajors {
+  optional string id = 1;
+  string name = 2;
+  string code = 3;
+  optional string description = 4;
+  optional string majorId = 5;
+  optional int32 tuition = 6;
+  optional float cutoffPoint = 7;
+  optional int32 admissionCriteria = 8;
+  repeated string graduationRequirements = 9;
+}
+
+message SubMajorWithMajorAndCertificates {
+  optional string id = 1;
+  string name = 2;
+  string code = 3;
+  optional string description = 4;
+  optional string majorId = 5;
+  optional majors.Majors major = 6;
+  optional int32 tuition = 7;
+  optional float cutoffPoint = 8;
+  optional int32 admissionCriteria = 9;
+  repeated certificate.Certificate graduationRequirements = 10;
+}
+
+message SubMajorss {
+  repeated SubMajorWithMajorAndCertificates data = 1;
+}
+
+message UpdateSubMajors {
+  string id = 1;
+  SubMajors body = 2;
+}
+
+message SubMajorsResponse {
+  oneof response {
+    SubMajors submajor = 1;
+    string error = 2;
+  }
+}
+
+message SubMajorssResponse {
+  oneof response {
+    SubMajorss submajors = 1;
+    string error = 2;
+  }
+}

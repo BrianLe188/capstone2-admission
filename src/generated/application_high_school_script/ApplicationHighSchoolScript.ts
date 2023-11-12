@@ -14,6 +14,7 @@ export interface ApplicationHighSchoolScript {
   'total'?: (number | string);
   'submitedAt'?: (string);
   'updatedAt'?: (string);
+  'code'?: (string);
   '_id'?: "id";
   '_status'?: "status";
   '_majorId'?: "majorId";
@@ -26,6 +27,7 @@ export interface ApplicationHighSchoolScript {
   '_total'?: "total";
   '_submitedAt'?: "submitedAt";
   '_updatedAt'?: "updatedAt";
+  '_code'?: "code";
 }
 
 export interface ApplicationHighSchoolScript__Output {
@@ -41,6 +43,7 @@ export interface ApplicationHighSchoolScript__Output {
   'total'?: (number);
   'submitedAt'?: (string);
   'updatedAt'?: (string);
+  'code'?: (string);
   '_id': "id";
   '_status': "status";
   '_majorId': "majorId";
@@ -53,4 +56,5 @@ export interface ApplicationHighSchoolScript__Output {
   '_total': "total";
   '_submitedAt': "submitedAt";
   '_updatedAt': "updatedAt";
+  '_code': "code";
 }

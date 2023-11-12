@@ -15,12 +15,33 @@ export interface ProtoGrpcType {
     ApplicationRegistrationsResponse: MessageTypeDefinition
     UpdateApplicationRegistration: MessageTypeDefinition
   }
+  area: {
+    Area: MessageTypeDefinition
+    AreaResponse: MessageTypeDefinition
+    Areas: MessageTypeDefinition
+    AreasResponse: MessageTypeDefinition
+    UpdateArea: MessageTypeDefinition
+  }
   candidate: {
     Candidate: MessageTypeDefinition
     CandidateResponse: MessageTypeDefinition
     Candidates: MessageTypeDefinition
     CandidatesResponse: MessageTypeDefinition
     UpdateCandidate: MessageTypeDefinition
+  }
+  gender: {
+    Gender: MessageTypeDefinition
+    GenderResponse: MessageTypeDefinition
+    Genders: MessageTypeDefinition
+    GendersResponse: MessageTypeDefinition
+    UpdateGender: MessageTypeDefinition
+  }
+  priority: {
+    Priorities: MessageTypeDefinition
+    PrioritiesResponse: MessageTypeDefinition
+    Priority: MessageTypeDefinition
+    PriorityResponse: MessageTypeDefinition
+    UpdatePriority: MessageTypeDefinition
   }
 }
 

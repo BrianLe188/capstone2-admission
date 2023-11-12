@@ -30,9 +30,23 @@ const getAll = async () => {
   } catch (error) {}
 };
 
+const getByOption = async (option: any = {}) => {
+  try {
+    const { relations, ...rest } = option;
+    const application = await applicationAdmissionRegistrationRepo.findOne({
+      where: rest,
+      relations,
+    });
+    return application;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const ApplicationAdmissionRegistrationService = {
   create,
   getAll,
+  getByOption,
 };
 
 export default ApplicationAdmissionRegistrationService;
