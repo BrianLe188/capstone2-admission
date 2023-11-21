@@ -51,6 +51,11 @@ service Admission {
   rpc GetApplicationForStraightAdmissionAndPriorityConsiderationByCode (Code) returns (application_straight_priority.ApplicationStraightPriorityWithCandidate) {}
 
   rpc AutoAccept (RequestEmpty) returns (Message) {}
+
+  rpc UpdateApplicationRegistration (application_registration.ApplicationRegistration) returns (Message) {}
+  rpc UpdateApplicationForAdmissionWithAHighSchoolScript (application_high_school_script.ApplicationHighSchoolScript) returns (Message) {}
+  rpc UpdateApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult (application_test_result.ApplicationTestResult) returns (Message) {}
+  rpc UpdateApplicationForStraightAdmissionAndPriorityConsideration (application_straight_priority.ApplicationStraightPriority) returns (Message) {}
 }
 
 message Code {

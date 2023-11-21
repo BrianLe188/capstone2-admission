@@ -1,4 +1,9 @@
 import ApplicationForAdmissionWithAHighSchoolScriptService from "./application-for-admission-with-a-high-school-script.service";
+import { ApplicationForAdmissionWithAHighSchoolScript } from "./application-for-admission-with-a-high-school-script.entity";
+import { AdmissionDB } from "../../data-source";
+
+const applicationForAdmissionWithAHighSchoolScriptRepo =
+  AdmissionDB.getRepository(ApplicationForAdmissionWithAHighSchoolScript);
 
 const GetAllApplicationForAdmissionWithAHighSchoolScript = async (
   call: any,
@@ -32,9 +37,30 @@ const GetApplicationForAdmissionWithAHighSchoolScriptByCode = async (
   } catch (error) {}
 };
 
+const UpdateApplicationForAdmissionWithAHighSchoolScript = async (
+  call: any,
+  callback: any
+) => {
+  try {
+    const { id, ...remain } = call.request;
+    const application: any =
+      await ApplicationForAdmissionWithAHighSchoolScriptService.getByOption({
+        id,
+      });
+    if (application) {
+      Object.keys(remain).forEach((item: any) => {
+        application[item] = remain[item];
+      });
+      await applicationForAdmissionWithAHighSchoolScriptRepo.save(application);
+    }
+    callback(null, { message: "Done" });
+  } catch (error) {}
+};
+
 const ApplicationForAdmissionWithAHighSchoolScriptServiceRPC = {
   GetAllApplicationForAdmissionWithAHighSchoolScript,
   GetApplicationForAdmissionWithAHighSchoolScriptByCode,
+  UpdateApplicationForAdmissionWithAHighSchoolScript,
 };
 
 export default ApplicationForAdmissionWithAHighSchoolScriptServiceRPC;

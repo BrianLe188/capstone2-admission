@@ -1,4 +1,11 @@
+import { AdmissionDB } from "../../data-source";
+import { ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult } from "./application-for-admission-consideration-according-to-the-competence-assessment-test-result.entity";
 import ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService from "./application-for-admission-consideration-according-to-the-competence-assessment-test-result.service";
+
+const applicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRepo =
+  AdmissionDB.getRepository(
+    ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult
+  );
 
 const GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult =
   async (call: any, callback: any) => {
@@ -30,10 +37,33 @@ const GetApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentT
     } catch (error) {}
   };
 
+const UpdateApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult =
+  async (call: any, callback: any) => {
+    try {
+      const { id, ...remain } = call.request;
+      const application: any =
+        await ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultService.getByOption(
+          {
+            id,
+          }
+        );
+      if (application) {
+        Object.keys(remain).forEach((item: any) => {
+          application[item] = remain[item];
+        });
+        await applicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRepo.save(
+          application
+        );
+      }
+      callback(null, { message: "Done" });
+    } catch (error) {}
+  };
+
 const ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC =
   {
     GetAllApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult,
     GetApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultByCode,
+    UpdateApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResult,
   };
 
 export default ApplicationForAdmissionConsiderationAccordingToTheCompetenceAssessmentTestResultRPC;

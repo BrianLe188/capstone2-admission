@@ -1,4 +1,11 @@
 import ApplicationForStraightAdmissionAndPriorityConsiderationService from "./application-for-straight-admission-and-priority-consideration.service";
+import { ApplicationForStraightAdmissionAndPriorityConsideration } from "./application-for-straight-admission-and-priority-consideration.entity";
+import { AdmissionDB } from "../../data-source";
+
+const applicationForStraightAdmissionAndPriorityConsiderationRepo =
+  AdmissionDB.getRepository(
+    ApplicationForStraightAdmissionAndPriorityConsideration
+  );
 
 const GetAllApplicationForStraightAdmissionAndPriorityConsideration = async (
   call: any,
@@ -34,9 +41,34 @@ const GetApplicationForStraightAdmissionAndPriorityConsiderationByCode = async (
   } catch (error) {}
 };
 
+const UpdateApplicationForStraightAdmissionAndPriorityConsideration = async (
+  call: any,
+  callback: any
+) => {
+  try {
+    const { id, ...remain } = call.request;
+    const application: any =
+      await ApplicationForStraightAdmissionAndPriorityConsiderationService.getByOption(
+        {
+          id,
+        }
+      );
+    if (application) {
+      Object.keys(remain).forEach((item: any) => {
+        application[item] = remain[item];
+      });
+      await applicationForStraightAdmissionAndPriorityConsiderationRepo.save(
+        application
+      );
+    }
+    callback(null, { message: "Done" });
+  } catch (error) {}
+};
+
 const ApplicationForStraightAdmissionAndPriorityConsiderationRPC = {
   GetAllApplicationForStraightAdmissionAndPriorityConsideration,
   GetApplicationForStraightAdmissionAndPriorityConsiderationByCode,
+  UpdateApplicationForStraightAdmissionAndPriorityConsideration,
 };
 
 export default ApplicationForStraightAdmissionAndPriorityConsiderationRPC;
